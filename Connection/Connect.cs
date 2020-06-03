@@ -14,7 +14,10 @@ namespace DeliveryApp.Connection
               Passoword=A1b2c3d4e5!";
 
               connection = new SqlConnection(strConn);
-              connection.Open();
+        }
+
+        public void Open() {
+            connection.Open();
         }
 
         public void Dispose(){

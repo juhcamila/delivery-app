@@ -9,6 +9,8 @@ namespace delivery_app.Data
 {
     public class ClienteData
     {
+      private Connect connect = new Connect();
+
       
     }
 }
