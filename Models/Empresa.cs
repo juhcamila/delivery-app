@@ -1,9 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System;
 
-namespace DeliveryApp.Empresa
+namespace DeliveryApp.Models
 {
-    
+    public class Empresa
+    {
         
     public Guid Id { get; set; }
     [Required(ErrorMessage = "Campo obrigatório.")]
@@ -12,4 +13,5 @@ namespace DeliveryApp.Empresa
     [MinLength(12, ErrorMessage = "O campo CNPJ deve conter no mínimo 12 caracteres.")]
     public String Cnpj { get; set; }
     public String Telefone { get; set; }
+    }
 }
