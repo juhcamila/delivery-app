@@ -3,11 +3,11 @@ using System.Data.SqlClient; // ADO.NET
 
 namespace DeliveryApp.Connection
 {
-    public class Connect : IDisposable
+    public abstract class Connect : IDisposable
     {
-        private SqlConnection connection = null;
+        public SqlConnection connection;
 
-        public void Connection(){
+        public Connect(){
             string strConn = @"Data Source=localhost;
               Initial Catalog=BdDelivery;
               User=sa;

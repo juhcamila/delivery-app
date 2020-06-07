@@ -20,5 +20,10 @@ namespace DeliveryApp.Models
 
       public byte[] Imagem { get; set; }
 
+      public int EmpresaId { get; set; }
+        
+      public virtual Empresa Empresa { get; set; }
+
+
     }
 }

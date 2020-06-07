@@ -5,11 +5,10 @@ using System.Linq;
 using System.Data.SqlClient; // ADO.NET
 using DeliveryApp.Connection;
 
-namespace delivery_app.Data
+namespace DeliveryApp.Data
 {
-    public class ClienteData
+    public class PedidoData : Connect
     {
-
-      
+        
     }
 }
