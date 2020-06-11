@@ -11,6 +11,9 @@ namespace DeliveryApp.Models
         public int StatusPedido { get; set; }
 
         public float ValorFrete { get; set; }
+        public float ValorTotal { get; set; }
+
+        public int TipoPagamento {get; set;}
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
