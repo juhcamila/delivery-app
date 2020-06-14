@@ -9,7 +9,7 @@ namespace DeliveryApp.Connection
 
         public Connect(){
             string strConn = @"Data Source=localhost;
-              Initial Catalog=BdDelivery;
+              Initial Catalog=BDDelivery_Food;
               User=sa;
               Passoword=A1b2c3d4e5!";
 
