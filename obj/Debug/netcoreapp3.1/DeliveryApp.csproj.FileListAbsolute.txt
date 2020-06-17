@@ -1,0 +1,7 @@
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.csprojAssemblyReference.cache
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.csproj.CoreCompileInputs.cache
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.RazorAssemblyInfo.cache
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.RazorAssemblyInfo.cs
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.AssemblyInfoInputs.cache
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.AssemblyInfo.cs

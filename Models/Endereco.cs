@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DeliveryApp.Models
 {
@@ -7,28 +8,26 @@ namespace DeliveryApp.Models
     {
         public Guid Id { get; set; }
 
-        [Required(ErrorMessage="Campo obrigatório.")] 
-        [MinLength(2, ErrorMessage="O campo Rua deve conter no mínimo 3 caracteres.")]
+        [Required(ErrorMessage = "Campo obrigatório.")]        
         [MaxLength(50)]
         public string Rua { get; set; }
 
-        [Required(ErrorMessage="Campo obrigatório.")] 
-        [MinLength(2, ErrorMessage="O campo Bairro deve conter no mínimo 3 caracteres.")]
+        [Required(ErrorMessage = "Campo obrigatório.")]
         [MaxLength(50)]
         public string Bairro { get; set; }
 
-        [Required(ErrorMessage="Campo Obrigatório.")]
+        [Required(ErrorMessage = "Campo Obrigatório.")]
         public int Numero { get; set; }
-
-        [Required(ErrorMessage="Campo obrigatório.")] 
-        [MaxLength(50)]
         public string Complemento { get; set; }
 
-        [Required(ErrorMessage="Campo obrigatório.")] 
+        [Required(ErrorMessage = "Campo obrigatório.")]
+        [MinLength(9, ErrorMessage = "Cep Inválido.")]
+        [MaxLength(9)]
         public string Cep { get; set; }
 
-        [Required(ErrorMessage="Campo obrigatório.")] 
+        [Required(ErrorMessage = "Campo obrigatório.")]
         [MaxLength(80)]
         public string Cidade { get; set; }
+       
     }
 }

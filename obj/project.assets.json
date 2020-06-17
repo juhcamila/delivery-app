@@ -454,26 +454,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jucie\\.nuget\\packages\\": {}
+    "C:\\Users\\COBMAX\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\DeliveryApp\\DeliveryApp.csproj",
+      "projectUniqueName": "C:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\DeliveryApp.csproj",
       "projectName": "DeliveryApp",
-      "projectPath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\DeliveryApp\\DeliveryApp.csproj",
-      "packagesPath": "C:\\Users\\jucie\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\DeliveryApp\\obj\\",
+      "projectPath": "C:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\DeliveryApp.csproj",
+      "packagesPath": "C:\\Users\\COBMAX\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\jucie\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\COBMAX\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

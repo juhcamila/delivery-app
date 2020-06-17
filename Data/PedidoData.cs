@@ -9,31 +9,42 @@ namespace DeliveryApp.Data
 {
     public class PedidoData : Connect
     {
-        public List<Pedido> Read(Cliente cliente, int status){
-            string sql = "SELECT * FROM Pedido WHERE clienteId = @id and StatusPedido = @status";
+        public List<Pedido> Read(Pedido pedido)
+        {
+            string sql = "SELECT p.*,ic.valor, e.nome, ed.bairro,ed.rua, ed.cidade FROM pedido p left join Empresa e ON e.id = p.id_empresa left join endereco ed ON ed.id = p.id_endereco left join Itens_Comprados ic on ic.id_pedido = p.ID WHERE p.id_cliente = @id and p.status_pedido = @status_pedido";
 
             List<Pedido> lista = new List<Pedido>();
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", cliente.Id.ToString());
-            cmd.Parameters.AddWithValue("@status", status);
+            cmd.Parameters.AddWithValue("@id", pedido.Id.ToString());
+            cmd.Parameters.AddWithValue("@status_pedido", pedido.status.ToString());
 
             SqlDataReader reader = cmd.ExecuteReader();
-        
 
-            while(reader.Read())
+
+            while (reader.Read())
             {
                 Pedido pedido = new Pedido();
                 pedido.Id = new Guid(reader.GetString(0));
                 pedido.Empresa.Nome = reader.GetString(1);
-                pedido.DataPedido = reader.GetDateTime(2);
-                pedido.ValorFrete = reader.GetFloat(3);
-                pedido.ValorTotal = reader.GetFloat(4);
-                pedido.Endereco.Bairro = reader.GetString(5);
-                pedido.Endereco.Rua = reader.GetString(6);
-                pedido.Endereco.Cidade = reader.GetString(7);
-                pedido.TipoPagamento = reader.GetInt32(8);
+                pedido.Data_Pedido = reader.GetDateTime(2);
+                pedido.Valor_Frete = reader.GetFloat(3);
+                pedido.Endereco.Bairro = reader.GetString(4);
+                pedido.Endereco.Rua = reader.GetString(5);
+                pedido.Endereco.Cidade = reader.GetString(6);
+                pedido.Tipo_Pagamento = reader.GetInt32(7);
+                pedido.Valor_Troco = reader.GetInt32(8);
+                pedido.status_Pedido = reader.GetInt32(9);
+
+                string ic = "SELECT SUM(valor) where id_pedido = @id";
+
+                SqlCommand cmdIc = new SqlCommand(ic, connection);
+                cmdIc.Parameters.AddWithValue("@id", pedido.Id.ToString());
+
+                SqlDataReader readerIc = cmd.ExecuteReader();
+
+                pedido.Valor_Total = readerIc.GetFloat(1);
 
                 lista.Add(pedido);
             }
@@ -41,8 +52,11 @@ namespace DeliveryApp.Data
             return lista;
         }
 
-        public Pedido Read(Guid id){
-            string sql = "SELECT * FROM Todo WHERE Id = @id";
+        public Pedido Read(Guid id)
+        {
+            string sql = "SELECT p.*,ic.valor, e.nome, ed.bairro,ed.rua, ed.cidade ,(SELECT SUM(Valor) FROM itens_comprados ic  "
+          + "WHERE ic.id_pedido = @id ) AS Valor_Total" +
+"FROM pedido p left join Empresa e ON e.id = p.id_empresa left join endereco ed ON ed.id = p.id_endereco left join Itens_Comprados ic on ic.id_pedido = p.ID WHERE p.id = @id";
 
             Pedido pedido = null;
 
@@ -52,16 +66,16 @@ namespace DeliveryApp.Data
 
             SqlDataReader reader = cmd.ExecuteReader();
 
-            if(reader.Read())
+            if (reader.Read())
             {
                 pedido = new Pedido();
                 pedido.Id = new Guid((string)reader["Id"]);
-                pedido.DataPedido = (DateTime)reader["DataPedido"];
+                pedido.Data_Pedido = (DateTime)reader["DataPedido"];
                 pedido.Empresa.Nome = (string)reader["Nome"];
-                pedido.ValorFrete = (float)reader["ValorFrete"];
-                pedido.ValorTotal = (float)reader["ValorTotal"];
-                pedido.StatusPedido = (int)reader["StatusPedido"];
-                pedido.TipoPagamento = (int)reader["TipoPagamento"];
+                pedido.Valor_Frete = (float)reader["ValorFrete"];
+                pedido.Valor_Total = (float)reader["ValorTotal"];
+                pedido.Status_Pedido = (int)reader["StatusPedido"];
+                pedido.Tipo_Pagamento = (int)reader["TipoPagamento"];
                 pedido.Endereco.Bairro = (string)reader["Bairro"];
                 pedido.Endereco.Rua = (string)reader["Rua"];
                 pedido.Endereco.Cidade = (string)reader["Cidade"];
@@ -70,25 +84,30 @@ namespace DeliveryApp.Data
             return pedido;
         }
 
-        public void Create(Pedido pedido, Cliente cliente, Empresa empresa, Endereco endereco) {
-            string sql = "INSERT INTO Pedido VALUES (@id, @tipoPagamento, @dataPedido, @empresaId, @valorFrete, @valorTotal, @statusPedido, @clienteId, @enderecoId)";
+        public void Create(Pedido pedido, Cliente cliente, Empresa empresa, Endereco endereco,ItensComprados itenscomprados)
+        {
 
+            string sql = "INSERT INTO Pedido VALUES (@id, @tipo_Pagamento, @data_Pedido, @valor_Frete, @valor_Total, @status_Pedido, @id_empresa, @id_cliente, @id_endereco)";
+            
             SqlCommand cmd = new SqlCommand(sql, connection);
 
             cmd.Parameters.AddWithValue("@id", pedido.Id);
-            cmd.Parameters.AddWithValue("@dataPedido", pedido.DataPedido);
-            cmd.Parameters.AddWithValue("@valorFrete", pedido.ValorFrete);
-            cmd.Parameters.AddWithValue("@valorTotal", pedido.ValorTotal);
-            cmd.Parameters.AddWithValue("@statusPedido", pedido.ValorTotal);
-            cmd.Parameters.AddWithValue("@tipoPagamento", pedido.TipoPagamento);
-            cmd.Parameters.AddWithValue("@empresaId", empresa.Id);
-            cmd.Parameters.AddWithValue("@clienteId", cliente.Id);
-            cmd.Parameters.AddWithValue("@enderecoId", endereco.Id);
+            cmd.Parameters.AddWithValue("@data_Pedido", pedido.DataPedido);
+            cmd.Parameters.AddWithValue("@valor_Frete", itenscomprados.Valor_Frete);
+            cmd.Parameters.AddWithValue("@status_Pedido", pedido.ValorTotal);
+            cmd.Parameters.AddWithValue("@tipo_Pagamento", pedido.TipoPagamento);
+            cmd.Parameters.AddWithValue("@id_empresa", empresa.Id);
+            cmd.Parameters.AddWithValue("@id_cliente", cliente.Id);
+            cmd.Parameters.AddWithValue("@id_endereco", endereco.Id);
 
             cmd.ExecuteNonQuery();
+
+            ItensCompradosData itens_comprados = new ItensCompradosData();
+            itens_comprados.Create(itenscomprados,pedido.Id);
         }
 
-        public void Delete(Guid id) {
+        public void Delete(Guid id)
+        {
             string sql = "DELETE FROM Pedido WHERE Id = @id";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
@@ -98,13 +117,14 @@ namespace DeliveryApp.Data
             cmd.ExecuteNonQuery();
         }
 
-        public void Update(Pedido pedido) {
-            string sql = "UPDATE Pedido SET sStatusPedido = @statusPedido WHERE Id = @id";
+        public void Update(Pedido pedido)
+        {
+            string sql = "UPDATE Pedido SET status_pedido = @status_Pedido WHERE Id = @id";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
             cmd.Parameters.AddWithValue("@id", pedido.Id);
-            cmd.Parameters.AddWithValue("@statusPedido", pedido.ValorTotal);
+            cmd.Parameters.AddWithValue("@status_Pedido", pedido.Status_Pedido);
 
             cmd.ExecuteNonQuery();
         }

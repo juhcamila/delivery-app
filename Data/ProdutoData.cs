@@ -9,7 +9,7 @@ namespace DeliveryApp.Data
     public class ProdutoData : Connect
     {
         public List<Produto> Read(Empresa empresa){
-            string sql = "SELECT * FROM Produto WHERE EmpresaId = @id";
+            string sql = "SELECT * FROM Produto WHERE id_empresa = @id";
 
             List<Produto> lista = new List<Produto>();
 
@@ -53,14 +53,14 @@ namespace DeliveryApp.Data
                 produto.Descricao = (string)reader["Descricao"];
                 produto.Valor = (float)reader["Valor"];
                 produto.Imagem = (byte[])reader["Imagem"];
-                produto.EmpresaId = (int)reader["EmpresaId"];
+                produto.id_empresa = (int)reader["Id_empresa"];
             }
 
             return produto;
         }
 
         public void Create(Produto produto, Empresa empresa){
-            string sql = "INSERT INTO Produto values (@id, @nome, @descricao, @valor, @imagem, @empresa_id";
+            string sql = "INSERT INTO Produto values (@id, @nome, @descricao, @valor, @imagem, @id_empresa";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
 
@@ -69,7 +69,7 @@ namespace DeliveryApp.Data
             cmd.Parameters.AddWithValue("@descricao", produto.Descricao);
             cmd.Parameters.AddWithValue("@valor", produto.Valor);
             cmd.Parameters.AddWithValue("@imagem", produto.Imagem);
-            cmd.Parameters.AddWithValue("@empresa_id", empresa.Id);
+            cmd.Parameters.AddWithValue("@id_empresa", empresa.Id);
 
             cmd.ExecuteNonQuery();
         }
@@ -86,7 +86,7 @@ namespace DeliveryApp.Data
 
 
         public void Update(Produto produto){
-            string sql = "UPDATE Produto SET Nome = @nome, Descricao = @descricao, Valor = @valor, Imagem = @imagem, EmpresaId = @empresa_id WHERE Id = @id";
+            string sql = "UPDATE Produto SET Nome = @nome, Descricao = @descricao, Valor = @valor, Imagem = @imagem, id_empresa = @id_empresa WHERE Id = @id";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
@@ -96,7 +96,7 @@ namespace DeliveryApp.Data
             cmd.Parameters.AddWithValue("@descricao", produto.Descricao);
             cmd.Parameters.AddWithValue("@valor", produto.Valor);
             cmd.Parameters.AddWithValue("@imagem", produto.Imagem);
-            cmd.Parameters.AddWithValue("@empresa_id", produto.EmpresaId);
+            cmd.Parameters.AddWithValue("@id_empresa", produto.id_empresa);
 
             cmd.ExecuteNonQuery(); 
         }
