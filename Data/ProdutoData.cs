@@ -53,7 +53,7 @@ namespace DeliveryApp.Data
                 produto.Descricao = (string)reader["Descricao"];
                 produto.Valor = (float)reader["Valor"];
                 produto.Imagem = (byte[])reader["Imagem"];
-                produto.EmpresaId = (int)reader["Id_empresa"];
+                produto.EmpresaId = (int)reader["EmpresaId"];
             }
 
             return produto;
@@ -96,7 +96,7 @@ namespace DeliveryApp.Data
             cmd.Parameters.AddWithValue("@descricao", produto.Descricao);
             cmd.Parameters.AddWithValue("@valor", produto.Valor);
             cmd.Parameters.AddWithValue("@imagem", produto.Imagem);
-            cmd.Parameters.AddWithValue("@id_empresa", produto.id_empresa);
+            cmd.Parameters.AddWithValue("@id_empresa", produto.EmpresaId);
 
             cmd.ExecuteNonQuery(); 
         }
