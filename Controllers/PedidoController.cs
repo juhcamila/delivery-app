@@ -9,10 +9,10 @@ namespace DeliveryApp.Controllers
     public class PedidoController : Controller
     {
         // [HttpGet]
-        public IActionResult Index(Pedido pedido)
+        public IActionResult Index(Empresa empresa)
         {
             using (PedidoData data = new PedidoData())
-                return View(data.Read(pedido));
+                return View(data.Read(empresa,1));
         }
 
         [HttpGet]

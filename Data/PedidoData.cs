@@ -9,16 +9,16 @@ namespace DeliveryApp.Data
 {
     public class PedidoData : Connect
     {
-        public List<Pedido> Read(Pedido pedido)
+        public List<Pedido> Read(Empresa empresa, int status)
         {
-            string sql = "SELECT p.*,ic.valor, e.nome, ed.bairro,ed.rua, ed.cidade FROM pedido p left join Empresa e ON e.id = p.id_empresa left join endereco ed ON ed.id = p.id_endereco left join Itens_Comprados ic on ic.id_pedido = p.ID WHERE p.id_cliente = @id and p.status_pedido = @status_pedido";
+            string sql = "SELECT p.*,ic.valor, e.nome, ed.bairro,ed.rua, ed.cidade FROM pedido p left join Empresa e ON e.id = p.id_empresa left join endereco ed ON ed.id = p.id_endereco left join Itens_Comprados ic on ic.id_pedido = p.ID WHERE p.id_empresa = @id and p.status_pedido = @status";
 
             List<Pedido> lista = new List<Pedido>();
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", pedido.Id.ToString());
-            cmd.Parameters.AddWithValue("@status_pedido", pedido.Status_Pedido.ToString());
+            cmd.Parameters.AddWithValue("@id", empresa.Id.ToString());
+            cmd.Parameters.AddWithValue("@status_pedido", status.ToString());
 
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -35,7 +35,7 @@ namespace DeliveryApp.Data
                 pedido.Endereco.Cidade = reader.GetString(6);
                 pedido.Tipo_Pagamento = reader.GetInt32(7);
                 pedido.Valor_Troco = reader.GetInt32(8);
-                pedido.status_Pedido = reader.GetInt32(9);
+                pedido.Status_Pedido = reader.GetInt32(9);
 
                 string ic = "SELECT SUM(valor) where id_pedido = @id";
 
