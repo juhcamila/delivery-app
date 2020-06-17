@@ -1,8 +1,8 @@
 using System;
-using System.Collections.Generic; // ~ import
+using System.Collections.Generic; 
 using DeliveryApp.Models;
 using System.Linq;
-using System.Data.SqlClient; // ADO.NET
+using System.Data.SqlClient; 
 using DeliveryApp.Connection;
 
 namespace DeliveryApp.Data
@@ -18,7 +18,7 @@ namespace DeliveryApp.Data
             SqlCommand cmd = new SqlCommand(sql, connection);
 
             cmd.Parameters.AddWithValue("@id", pedido.Id.ToString());
-            cmd.Parameters.AddWithValue("@status_pedido", pedido.status.ToString());
+            cmd.Parameters.AddWithValue("@status_pedido", pedido.Status_Pedido.ToString());
 
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -92,10 +92,10 @@ namespace DeliveryApp.Data
             SqlCommand cmd = new SqlCommand(sql, connection);
 
             cmd.Parameters.AddWithValue("@id", pedido.Id);
-            cmd.Parameters.AddWithValue("@data_Pedido", pedido.DataPedido);
-            cmd.Parameters.AddWithValue("@valor_Frete", itenscomprados.Valor_Frete);
-            cmd.Parameters.AddWithValue("@status_Pedido", pedido.ValorTotal);
-            cmd.Parameters.AddWithValue("@tipo_Pagamento", pedido.TipoPagamento);
+            cmd.Parameters.AddWithValue("@data_Pedido", pedido.Data_Pedido);
+            cmd.Parameters.AddWithValue("@valor_Frete", pedido.Valor_Frete);
+            cmd.Parameters.AddWithValue("@status_Pedido", pedido.Valor_Total);
+            cmd.Parameters.AddWithValue("@tipo_Pagamento", pedido.Tipo_Pagamento);
             cmd.Parameters.AddWithValue("@id_empresa", empresa.Id);
             cmd.Parameters.AddWithValue("@id_cliente", cliente.Id);
             cmd.Parameters.AddWithValue("@id_endereco", endereco.Id);
@@ -103,7 +103,7 @@ namespace DeliveryApp.Data
             cmd.ExecuteNonQuery();
 
             ItensCompradosData itens_comprados = new ItensCompradosData();
-            itens_comprados.Create(itenscomprados,pedido.Id);
+          //  itens_comprados.Create(itenscomprados);
         }
 
         public void Delete(Guid id)

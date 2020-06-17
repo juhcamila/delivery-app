@@ -42,3 +42,12 @@ C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\De
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\DeliveryApp.pdb
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\DeliveryApp.genruntimeconfig.cache
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Login\AuthEmpresa.cshtml.g.cs
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.csprojAssemblyReference.cache
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.csproj.CoreCompileInputs.cache
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.RazorAssemblyInfo.cache
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.RazorAssemblyInfo.cs
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.AssemblyInfoInputs.cache
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.AssemblyInfo.cs
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.dll
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.pdb

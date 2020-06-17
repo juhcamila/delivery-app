@@ -53,7 +53,7 @@ namespace DeliveryApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(string id, Pedido model, ItensComprados itenscomprados)
+        public IActionResult Update(string id, Pedido model)
         { 
             if (!ModelState.IsValid)
                 return View(model);
@@ -61,7 +61,7 @@ namespace DeliveryApp.Controllers
             model.Id = new Guid(id);
 
             using (PedidoData data = new PedidoData())
-                data.Update(model, itenscomprados);
+                data.Update(model);
 
             return RedirectToAction("Index");
         }

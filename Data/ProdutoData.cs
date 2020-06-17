@@ -53,7 +53,7 @@ namespace DeliveryApp.Data
                 produto.Descricao = (string)reader["Descricao"];
                 produto.Valor = (float)reader["Valor"];
                 produto.Imagem = (byte[])reader["Imagem"];
-                produto.id_empresa = (int)reader["Id_empresa"];
+                produto.EmpresaId = (int)reader["Id_empresa"];
             }
 
             return produto;

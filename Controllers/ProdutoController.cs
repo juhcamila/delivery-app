@@ -8,7 +8,7 @@ namespace DeliveryApp.Controllers
 {
     public class ProdutoController : Controller
     {
-        // [HttpGet]
+        [HttpGet]
         public IActionResult Index(Empresa empresa)
         {
         using(ProdutoData data = new ProdutoData())

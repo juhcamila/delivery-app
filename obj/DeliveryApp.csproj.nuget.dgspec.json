@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\DeliveryApp.csproj": {}
+    "C:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\DeliveryApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\DeliveryApp.csproj": {
+    "C:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\DeliveryApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\DeliveryApp.csproj",
+        "projectUniqueName": "C:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\DeliveryApp.csproj",
         "projectName": "DeliveryApp",
-        "projectPath": "C:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\DeliveryApp.csproj",
-        "packagesPath": "C:\\Users\\jucie\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\obj\\",
+        "projectPath": "C:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\DeliveryApp.csproj",
+        "packagesPath": "C:\\Users\\COBMAX\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\COBMAX\\AppData\\Roaming\\NuGet\\NuGet.Config"

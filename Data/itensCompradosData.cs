@@ -58,7 +58,7 @@ namespace DeliveryApp.Data
             return itenscomprados;
         }
 
-        public void Create(ItensComprados itenscomprados,Pedido pedido,Produto produto)
+        public void Create(ItensComprados itenscomprados,Produto produto)
         {
 
             string sql = "INSERT INTO itens_comprados VALUES (@id,@quantidade,@valor,@id_produto,@id_pedido)";
@@ -69,7 +69,7 @@ namespace DeliveryApp.Data
             cmd.Parameters.AddWithValue("@quantidade", itenscomprados.Quantidade);
             cmd.Parameters.AddWithValue("@valor", itenscomprados.Valor);
             cmd.Parameters.AddWithValue("@id_produto", produto.Id);
-            cmd.Parameters.AddWithValue("@id_pedido", pedido.Id);
+           // cmd.Parameters.AddWithValue("@id_pedido", pedido.Id);
             cmd.ExecuteNonQuery();
         }
 
