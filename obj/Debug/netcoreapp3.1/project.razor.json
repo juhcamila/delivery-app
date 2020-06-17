@@ -20541,6 +20541,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Login\\AuthEmpresa.cshtml",
+      "TargetPath": "Views\\Login\\AuthEmpresa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"

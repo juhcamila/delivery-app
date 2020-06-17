@@ -11,7 +11,7 @@ namespace DeliveryApp.Models
         public string Email { get; set; }
 
         [Required(ErrorMessage="Campo obrigatório.")] 
-        [MinLength(6, ErrorMessage="O campo Senha deve conter no mínimo 6 caracteres.")]
+        [MinLength(5, ErrorMessage="O campo Senha deve conter no mínimo 6 caracteres.")]
         [MaxLength(10)]
         public string Senha { get; set; }
 
