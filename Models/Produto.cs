@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DeliveryApp.Models
 {
@@ -23,7 +24,6 @@ namespace DeliveryApp.Models
       public int EmpresaId { get; set; }
         
       public virtual Empresa Empresa { get; set; }
-
 
     }
 }

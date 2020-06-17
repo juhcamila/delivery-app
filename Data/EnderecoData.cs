@@ -7,14 +7,15 @@ namespace DeliveryApp.Data
 {
     public class EnderecoData : Connect
     {
-        public Endereco Read(Guid id){
-            string sql = "SELECT * FROM Endereco WHERE Id = @id";
+        public Endereco Read(Guid id,Guid id_cliente){
+            string sql = "SELECT * FROM Endereco e inner join cliente c on e.id = c.id_endereco where e.id = @id and c.id_cliente = @id_cliente";
 
             Endereco endereco = null;
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
             cmd.Parameters.AddWithValue("@id", id.ToString());
+             cmd.Parameters.AddWithValue("@id_cliente", id.ToString());
 
             SqlDataReader reader = cmd.ExecuteReader();
 
