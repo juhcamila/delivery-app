@@ -28,7 +28,6 @@ namespace DeliveryApp.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            model.Id = Guid.NewGuid();
 
             using (ClienteData data = new ClienteData())
                 data.Create(model,endereco);
@@ -36,29 +35,27 @@ namespace DeliveryApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
 
             using (ClienteData data = new ClienteData())
-                data.Delete(new Guid(id));
+                data.Delete(id);
 
             return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult Update(string id)
+        public IActionResult Update(int id)
         {
             using (ClienteData data = new ClienteData())
-                return View(data.Read(new Guid(id)));
+                return View(data.Read(id));
         }
 
         [HttpPost]
-        public IActionResult Update(string id, Cliente model)
+        public IActionResult Update(int id, Cliente model)
         {
             if (!ModelState.IsValid)
                 return View(model);
-
-            model.Id = new Guid(id);
 
             using (ClienteData data = new ClienteData())
                 data.Update(model);

@@ -6,7 +6,7 @@ namespace DeliveryApp.Models
 {
     public class Cliente
     {
-        public Guid Id {get; set;}
+        public int Id {get; set;}
         
         [Required(ErrorMessage="Campo obrigatório.")] 
         [MinLength(3, ErrorMessage="O campo Nome deve conter no mínimo 3 caracteres.")]

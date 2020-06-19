@@ -9,7 +9,7 @@ namespace DeliveryApp.Data
 {
     public class ClienteData : Connect
     {
-        public Cliente Read(Guid id)
+        public Cliente Read(int id)
         {
             string sql = "SELECT * FROM Cliente Where Id = @id";
 
@@ -24,7 +24,7 @@ namespace DeliveryApp.Data
             if (reader.Read())
             {
                 cliente = new Cliente();
-                cliente.Id = new Guid((string)reader["Id"]);
+                cliente.Id = (int)reader["Id"];
                 cliente.Nome = (string)reader["Nome"];
                 cliente.Cpf = (string)reader["Cpf"];
                 cliente.Celular = (string)reader["Celular"];
@@ -47,7 +47,7 @@ namespace DeliveryApp.Data
             cmd.ExecuteNonQuery();
         }
 
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
             string sql = "Delete From Cliente Where Id = @id";
 
