@@ -20551,6 +20551,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Endereco\\Create.cshtml",
+      "TargetPath": "Views\\Endereco\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
