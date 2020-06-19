@@ -12,21 +12,21 @@ namespace DeliveryApp.Data
         
         }
 
-        public Usuario Read(Guid id){
+        public Usuario Read(int id){
             string sql = "SELECT * FROM Usuario WHERE id = @id";
 
             Usuario usuario = null;
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", id.ToString());
+            cmd.Parameters.AddWithValue("@id", id);
 
             SqlDataReader reader = cmd.ExecuteReader();
 
             if(reader.Read())
             {
                 usuario = new Usuario();
-                usuario.Id = new Guid((string)reader["Id"]);
+                usuario.Id = (int)reader["Id"];
                 usuario.Email = (string)reader["Email"];
                 usuario.Senha = (string)reader["Senha"];
                 usuario.Tipo = (int)reader["Tipo"];
@@ -36,12 +36,10 @@ namespace DeliveryApp.Data
         }
 
         public void Create(Usuario usuario){
-            Console.WriteLine(usuario.Id);
-            string sql = "INSERT INTO Usuario (id, email, senha, tipo) values (@id, @email, @senha, 1)";
+            string sql = "INSERT INTO Usuario (email, senha, tipo) values (@email, @senha, 1)";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", usuario.Id);
             cmd.Parameters.AddWithValue("@email", usuario.Email);
             cmd.Parameters.AddWithValue("@senha", usuario.Senha);
             cmd.Parameters.AddWithValue("@tipo", usuario.Tipo);
@@ -69,12 +67,12 @@ namespace DeliveryApp.Data
             }
         }
 
-        public void Delete(Guid id){
+        public void Delete(int id){
             string sql = "DELETE FROM Usuario WHERE id = @id";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", id.ToString());
+            cmd.Parameters.AddWithValue("@id", id);
 
             cmd.ExecuteNonQuery();
         }

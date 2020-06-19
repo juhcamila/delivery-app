@@ -9,11 +9,18 @@ namespace DeliveryApp.Controllers
     public class EnderecoController : Controller
     {
         // [HttpGet]
-        public IActionResult Index(Endereco endereco, Cliente cliente)
+        public IActionResult Index(Cliente cliente)
         {
         using(EnderecoData data = new EnderecoData())
-            return View(data.Read(endereco.Id,cliente.Id));
+            return View(data.Read(cliente.Endereco.Id));
         }
+
+        public IActionResult Index(Empresa empresa)
+        {
+        using(EnderecoData data = new EnderecoData())
+            return View(data.Read(empresa.Endereco.Id));
+        }
+
 
            [HttpGet]
         public IActionResult Create()
@@ -28,7 +35,6 @@ namespace DeliveryApp.Controllers
       if(!ModelState.IsValid)
         return View(model);
 
-      model.Id = Guid.NewGuid();
 
       using(ProdutoData data = new ProdutoData())
         data.Create(model, empresa);
@@ -36,28 +42,26 @@ namespace DeliveryApp.Controllers
       return RedirectToAction("Index");
     }
 
-    public IActionResult Delete(string id) {
+    public IActionResult Delete(int id) {
 
       using(ProdutoData data = new ProdutoData())
-        data.Delete(new Guid(id));
+        data.Delete(id);
 
       return RedirectToAction("Index");
     }
 
     [HttpGet]
-    public IActionResult Update(string id)  
+    public IActionResult Update(int id)  
     {
       using(ProdutoData data = new ProdutoData())
-        return View(data.Read(new Guid(id)));
+        return View(data.Read(id));
     }
 
     [HttpPost]
-    public IActionResult Update(string id, Produto model) 
+    public IActionResult Update(Produto model) 
     {
         if(!ModelState.IsValid)
           return View(model);
-
-        model.Id = new Guid(id);
 
         using(ProdutoData data = new ProdutoData())
           data.Update(model);

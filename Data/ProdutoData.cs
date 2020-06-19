@@ -23,7 +23,7 @@ namespace DeliveryApp.Data
             while(reader.Read())
             {
                 Produto produto = new Produto();
-                produto.Id = new Guid(reader.GetString(0));
+                produto.Id = reader.GetInt32(0);
                 produto.Nome = reader.GetString(1);
                 produto.Descricao = reader.GetString(2);
                 produto.Valor = reader.GetFloat(3);
@@ -34,21 +34,21 @@ namespace DeliveryApp.Data
 
             return lista;
         }
-        public Produto Read(Guid id){
+        public Produto Read(int id){
             string sql = "SELECT * FROM Produto WHERE Id = @id";
 
             Produto produto = null;
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", id.ToString());
+            cmd.Parameters.AddWithValue("@id", id);
 
             SqlDataReader reader = cmd.ExecuteReader();
 
             if(reader.Read())
             {
                 produto = new Produto();
-                produto.Id = new Guid((string)reader["Id"]);
+                produto.Id = (int)reader["Id"];
                 produto.Nome = (string)reader["Nome"];
                 produto.Descricao = (string)reader["Descricao"];
                 produto.Valor = (float)reader["Valor"];
@@ -60,11 +60,10 @@ namespace DeliveryApp.Data
         }
 
         public void Create(Produto produto, Empresa empresa){
-            string sql = "INSERT INTO Produto values (@id, @nome, @descricao, @valor, @imagem, @id_empresa";
+            string sql = "INSERT INTO Produto values (@nome, @descricao, @valor, @imagem, @id_empresa";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", produto.Id);
             cmd.Parameters.AddWithValue("@nome", produto.Nome);
             cmd.Parameters.AddWithValue("@descricao", produto.Descricao);
             cmd.Parameters.AddWithValue("@valor", produto.Valor);
@@ -74,12 +73,12 @@ namespace DeliveryApp.Data
             cmd.ExecuteNonQuery();
         }
 
-        public void Delete(Guid id){
+        public void Delete(int id){
             string sql = "DELETE FROM Produto WHERE Id = @id";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", id.ToString());
+            cmd.Parameters.AddWithValue("@id", id);
 
             cmd.ExecuteNonQuery();
         }

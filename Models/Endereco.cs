@@ -6,7 +6,7 @@ namespace DeliveryApp.Models
 {
     public class Endereco
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório.")]        
         [MaxLength(50)]

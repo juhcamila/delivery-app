@@ -7,22 +7,21 @@ namespace DeliveryApp.Data
 {
     public class EnderecoData : Connect
     {
-        public Endereco Read(Guid id,Guid id_cliente){
-            string sql = "SELECT * FROM Endereco e inner join cliente c on e.id = c.id_endereco where e.id = @id and c.id_cliente = @id_cliente";
+        public Endereco Read(int id){
+            string sql = "SELECT * FROM Endereco e inner join cliente c on e.id = c.id_endereco where e.id = @id";
 
             Endereco endereco = null;
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", id.ToString());
-             cmd.Parameters.AddWithValue("@id_cliente", id.ToString());
+            cmd.Parameters.AddWithValue("@id", id);
 
             SqlDataReader reader = cmd.ExecuteReader();
 
             if(reader.Read())
             {
                 endereco = new Endereco();
-                endereco.Id = new Guid((string)reader["Id"]);
+                endereco.Id = (int)reader["Id"];
                 endereco.Rua = (string)reader["Rua"];
                 endereco.Numero = (int)reader["Numero"];
                 endereco.Bairro = (string)reader["Bairro"];
@@ -35,11 +34,10 @@ namespace DeliveryApp.Data
         }
 
         public void Create(Endereco endereco){
-            string sql = "INSERT INTO Endereco values (@id, @rua, @numero, @bairro, @complemento, @cpf, @Cidade";
+            string sql = "INSERT INTO Endereco values (@rua, @numero, @bairro, @complemento, @cpf, @Cidade";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", endereco.Id);
             cmd.Parameters.AddWithValue("@rua", endereco.Rua);
             cmd.Parameters.AddWithValue("@numero", endereco.Numero);
             cmd.Parameters.AddWithValue("@bairro", endereco.Bairro);
@@ -50,12 +48,12 @@ namespace DeliveryApp.Data
             cmd.ExecuteNonQuery();
         }
 
-        public void Delete(Guid id){
+        public void Delete(int id){
             string sql = "DELETE FROM Endereco WHERE Id = @id";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", id.ToString());
+            cmd.Parameters.AddWithValue("@id", id);
 
             cmd.ExecuteNonQuery();
         }

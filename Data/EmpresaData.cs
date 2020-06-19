@@ -21,7 +21,7 @@ namespace DeliveryApp.Data
             while(reader.Read())
             {
                 Empresa empresa = new Empresa();
-                empresa.Id = new Guid(reader.GetString(0));
+                empresa.Id = reader.GetInt32(0);
                 empresa.Nome = reader.GetString(1);
                 empresa.Telefone = reader.GetString(2);
                 empresa.Endereco.Bairro = reader.GetString(3);
@@ -35,7 +35,7 @@ namespace DeliveryApp.Data
 
             return lista;
         }
-        public Empresa Read(Guid id){
+        public Empresa Read(int id){
             string sql = "SELECT * FROM Empresa WHERE id = @id";
 
             Empresa empresa = null;
@@ -49,7 +49,7 @@ namespace DeliveryApp.Data
             if(reader.Read())
             {
                 empresa = new Empresa();
-                empresa.Id = new Guid((string)reader["Id"]);
+                empresa.Id = (int)reader["Id"];
                 empresa.Nome = (string)reader["Nome"];
                 empresa.Cnpj = (string)reader["Cnpj"];
                 empresa.Telefone = (string)reader["Telefone"];
@@ -63,11 +63,10 @@ namespace DeliveryApp.Data
         }
 
         public void Create(Empresa empresa){
-            string sql = "INSERT INTO Empresa values (@id, @nome, @cnpj, @telefone, @endereco_id, @usuario_id)";
+            string sql = "INSERT INTO Empresa values (@nome, @cnpj, @telefone, @endereco_id, @usuario_id)";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", empresa.Id);
             cmd.Parameters.AddWithValue("@nome", empresa.Nome);
             cmd.Parameters.AddWithValue("@cnpj", empresa.Cnpj);
             cmd.Parameters.AddWithValue("@telefone", empresa.Telefone);
@@ -77,7 +76,7 @@ namespace DeliveryApp.Data
             cmd.ExecuteNonQuery();
         }
 
-        public void Delete(Guid id){
+        public void Delete(int id){
             string sql = "DELETE FROM Empresa WHERE id = @id";
 
             SqlCommand cmd = new SqlCommand(sql, connection);

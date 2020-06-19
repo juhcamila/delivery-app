@@ -32,10 +32,6 @@ namespace DeliveryApp.Controllers
             if(ModelState.IsValid)
                 return View(model);
 
-            model.Id = Guid.NewGuid();
-            model.Usuario.Id = Guid.NewGuid();
-            model.Endereco.Id = Guid.NewGuid();
-
             using(UsuarioData data = new UsuarioData())
                 data.Create(model.Usuario);
 
@@ -48,28 +44,26 @@ namespace DeliveryApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(string id) {
+        public IActionResult Delete(int id) {
 
         using(EmpresaData data = new EmpresaData())
-            data.Delete(new Guid(id));
+            data.Delete(id);
 
         return RedirectToAction("Index");
         }
 
         [HttpGet]
-        public IActionResult Update(string id)  
+        public IActionResult Update(int id)  
         {
         using(EmpresaData data = new EmpresaData())
-            return View(data.Read(new Guid(id)));
+            return View(data.Read(id));
         }
 
         [HttpPost]
-        public IActionResult Update(string id, Empresa model) 
+        public IActionResult Update(Empresa model) 
         {
             if(!ModelState.IsValid)
             return View(model);
-
-            model.Id = new Guid(id);
 
             using(EmpresaData data = new EmpresaData())
             data.Update(model);

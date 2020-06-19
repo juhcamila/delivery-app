@@ -6,7 +6,7 @@ namespace DeliveryApp.Models
 {
     public class Produto
     {
-       public Guid Id { get; set; }
+       public int Id { get; set; }
 
       [Required(ErrorMessage="Campo obrigatório.")] 
       [MaxLength(20)]

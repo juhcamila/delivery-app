@@ -5,7 +5,7 @@ namespace DeliveryApp.Models
 {
     public class Usuario
     {
-        public Guid Id {get; set;}
+        public int Id {get; set;}
         
         [Required(ErrorMessage="Campo obrigatório.")] 
         public string Email { get; set; }

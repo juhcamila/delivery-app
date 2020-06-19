@@ -6,7 +6,7 @@ namespace DeliveryApp.Models
     public class Empresa
     {
             
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage = "Campo obrigatório.")]
         public String Nome { get; set; }
         
