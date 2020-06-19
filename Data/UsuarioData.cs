@@ -36,7 +36,8 @@ namespace DeliveryApp.Data
         }
 
         public void Create(Usuario usuario){
-            string sql = "INSERT INTO Usuario values (@id, @email, @senha, @tipo)";
+            Console.WriteLine(usuario.Id);
+            string sql = "INSERT INTO Usuario (id, email, senha, tipo) values (@id, @email, @senha, 1)";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
 

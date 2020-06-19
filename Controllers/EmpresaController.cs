@@ -22,18 +22,30 @@ namespace DeliveryApp.Controllers
         }
 
         [HttpPost] 
-        public IActionResult Create(Empresa model, Endereco endereco, Usuario usuario)
+        public IActionResult Create(Empresa model)
         {
-        // VALIDAÇÃO
-        if(!ModelState.IsValid)
-            return View(model);
+            //if (model.Endereco.Numero <= 100){
+            //    ModelState.AddModelError("Endereco.Numero", "Tem que ser maior que 100, sua anta");
+           //     return View(model);
+          //  }
+           
+            if(ModelState.IsValid)
+                return View(model);
 
-        model.Id = Guid.NewGuid();
+            model.Id = Guid.NewGuid();
+            model.Usuario.Id = Guid.NewGuid();
+            model.Endereco.Id = Guid.NewGuid();
 
-        using(EmpresaData data = new EmpresaData())
-            data.Create(usuario, model, endereco);
+            using(UsuarioData data = new UsuarioData())
+                data.Create(model.Usuario);
 
-        return RedirectToAction("Index");
+            using(EnderecoData data = new EnderecoData())
+                data.Create(model.Endereco);    
+
+            using(EmpresaData data = new EmpresaData())
+                data.Create(model);
+
+            return RedirectToAction("Index");
         }
 
         public IActionResult Delete(string id) {

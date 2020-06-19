@@ -62,7 +62,7 @@ namespace DeliveryApp.Data
             return empresa;
         }
 
-        public void Create(Usuario usuario, Empresa empresa, Endereco endereco){
+        public void Create(Empresa empresa){
             string sql = "INSERT INTO Empresa values (@id, @nome, @cnpj, @telefone, @endereco_id, @usuario_id)";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
@@ -71,8 +71,8 @@ namespace DeliveryApp.Data
             cmd.Parameters.AddWithValue("@nome", empresa.Nome);
             cmd.Parameters.AddWithValue("@cnpj", empresa.Cnpj);
             cmd.Parameters.AddWithValue("@telefone", empresa.Telefone);
-            cmd.Parameters.AddWithValue("@endereco_id", endereco.Id);
-            cmd.Parameters.AddWithValue("@usuario_id", usuario.Id);
+            cmd.Parameters.AddWithValue("@endereco_id", empresa.Endereco.Id);
+            cmd.Parameters.AddWithValue("@usuario_id", empresa.Usuario.Id);
 
             cmd.ExecuteNonQuery();
         }

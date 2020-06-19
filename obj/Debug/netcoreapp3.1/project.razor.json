@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\DeliveryApp.csproj",
+  "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\DeliveryApp.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -20521,43 +20521,48 @@
   "RootNamespace": "DeliveryApp",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Home\\Privacy.cshtml",
-      "TargetPath": "Views\\Home\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Login\\AuthEmpresa.cshtml",
-      "TargetPath": "Views\\Login\\AuthEmpresa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Home\\Index.cshtml",
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Home\\Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Login\\AuthEmpresa.cshtml",
+      "TargetPath": "Views\\Login\\AuthEmpresa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Home\\Privacy.cshtml",
+      "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\empresa\\create.cshtml",
+      "TargetPath": "Views\\empresa\\create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     }
   ],
