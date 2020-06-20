@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - DeliveryApp</title>
+    <title style="color: red">@ViewData["Title"] - DeliveryApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -11,18 +11,33 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DeliveryApp</a>
+                <a class="navbar-brand"  style="color: red; font-family:Snell Roundhand, cursive;" asp-area="" asp-controller="Home" asp-action="Index">DeliveryApp</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        <li>
+                             <form class="form-inline ">
+                                <i class="fas fa-search" aria-hidden="true"></i><input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Busque por item ou loja" aria-label="Search">
+                                
+                            </form>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark"  asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                             <a class="nav-link text-dark" asp-controller="Endereco" asp-action="create"  style="color: red">Endereço</a>   
+                        </li>
+                        <li class="nav-item">
+                             <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="create"  style="color: red">Perfil</a>   
+                        </li>
+                        <li class="nav-item">
+                             <a class="nav-link text-dark"  asp-area="" asp-controller="Pedido" asp-action="create"  style="color: red">Pedido</a>   
+                        </li>
+                        <li class="nav-item">
+                             <a href="~/login/logout" class="nav-link text-dark" >Realizar o logout</a>   
                         </li>
                     </ul>
                 </div>
@@ -37,7 +52,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - DeliveryApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            Copyright &copy; 2020 DeliveryApp - Todos os direitos reservados<!--a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a-->
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

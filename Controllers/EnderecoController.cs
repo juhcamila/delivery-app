@@ -29,22 +29,22 @@ namespace DeliveryApp.Controllers
         }
 
         [HttpPost] 
-    public IActionResult Create(Produto model, Empresa empresa) 
+    public IActionResult Create(Endereco model) 
     {
       // VALIDAÇÃO
       if(!ModelState.IsValid)
         return View(model);
 
 
-      using(ProdutoData data = new ProdutoData())
-        data.Create(model, empresa);
+      using(EnderecoData data = new EnderecoData())
+        data.Create(model);
 
-      return RedirectToAction("Index");
+      return RedirectToAction("Index", "Home");
     }
 
     public IActionResult Delete(int id) {
 
-      using(ProdutoData data = new ProdutoData())
+      using(EnderecoData data = new EnderecoData())
         data.Delete(id);
 
       return RedirectToAction("Index");
@@ -53,20 +53,22 @@ namespace DeliveryApp.Controllers
     [HttpGet]
     public IActionResult Update(int id)  
     {
-      using(ProdutoData data = new ProdutoData())
+      id = 3;
+      using(EnderecoData data = new EnderecoData())
         return View(data.Read(id));
     }
 
     [HttpPost]
-    public IActionResult Update(Produto model) 
+    public IActionResult Update(Endereco model) 
     {
+      model.Id = 3;
         if(!ModelState.IsValid)
           return View(model);
 
-        using(ProdutoData data = new ProdutoData())
+        using(EnderecoData data = new EnderecoData())
           data.Update(model);
 
-        return RedirectToAction("Index");
+        return RedirectToAction("Index","Home");
     }
 
   }

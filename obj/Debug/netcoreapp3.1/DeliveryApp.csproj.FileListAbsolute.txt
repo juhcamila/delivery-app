@@ -89,9 +89,19 @@ C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Deli
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\staticwebassets\DeliveryApp.StaticWebAssets.Manifest.cache
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\staticwebassets\DeliveryApp.StaticWebAssets.xml
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.genruntimeconfig.cache
+<<<<<<< Updated upstream
 =======
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutEmpresa.cshtml.g.cs
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\IndexEmpresa.cshtml.g.cs
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\ShowEmpresa.cshtml.g.cs
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Empresa\Update.cshtml.g.cs
+>>>>>>> Stashed changes
+=======
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Create.cshtml.g.cs
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Update.cshtml.g.cs
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\Endereco\Create.cshtml.g.cs
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\Endereco\Update.cshtml.g.cs
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Create.cshtml.g.cs
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Delete.cshtml.g.cs
+C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Update.cshtml.g.cs
 >>>>>>> Stashed changes

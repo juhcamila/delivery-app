@@ -21,8 +21,8 @@ namespace DeliveryApp.Controllers
             return View(new Produto());
         }
 
-        [HttpPost] // atributo // annotations
-    public IActionResult Create(Produto model, Empresa empresa) // Model Binding (MVC - HTML, API - JSON)
+        [HttpPost] 
+    public IActionResult Create(Produto model, Empresa empresa) 
     {
       // VALIDAÇÃO
       if(!ModelState.IsValid)

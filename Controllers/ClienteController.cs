@@ -8,8 +8,9 @@ namespace DeliveryApp.Controllers
 {
     public class ClienteController : Controller
     {
-        // [HttpGet]
-        public IActionResult Index(Cliente cliente)
+
+        [HttpGet]
+        public IActionResult Read(Cliente cliente)
         {
             using (ClienteData data = new ClienteData())
                 return View(data.Read(cliente.Id));
@@ -22,17 +23,30 @@ namespace DeliveryApp.Controllers
         }
 
         [HttpPost] // atributo // annotations
-        public IActionResult Create(Cliente model, Endereco endereco) // Model Binding (MVC - HTML, API - JSON)
+        public IActionResult Create(Cliente model) // Model Binding (MVC - HTML, API - JSON)
         {
             // VALIDAÇÃO
+           // Usuario usuario = null;
+           //Endereco endereco = null;
+
             if (!ModelState.IsValid)
                 return View(model);
 
-
             using (ClienteData data = new ClienteData())
-                data.Create(model,endereco);
+                data.Create(model);
 
-            return RedirectToAction("Index");
+            /*using(UsuarioData data = new UsuarioData())
+            usuario = data.Create(model.Usuario);
+
+            using(EnderecoData data = new EnderecoData())
+                endereco = data.Create(model.Endereco);    
+            
+            model.Usuario.Id = usuario.Id;
+            model.Endereco.Id = endereco.Id;
+
+*/            
+
+            return RedirectToAction("Index", "Home");
         }
 
         public IActionResult Delete(int id)
@@ -41,12 +55,14 @@ namespace DeliveryApp.Controllers
             using (ClienteData data = new ClienteData())
                 data.Delete(id);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
-
+     
         [HttpGet]
-        public IActionResult Update(int id)
+        public IActionResult Update()  
         {
+            int id = 5;
+            Console.WriteLine(id);
             using (ClienteData data = new ClienteData())
                 return View(data.Read(id));
         }
@@ -54,13 +70,14 @@ namespace DeliveryApp.Controllers
         [HttpPost]
         public IActionResult Update(int id, Cliente model)
         {
+            model.Id = 5;
             if (!ModelState.IsValid)
                 return View(model);
 
             using (ClienteData data = new ClienteData())
                 data.Update(model);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
     }

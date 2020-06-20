@@ -11,8 +11,8 @@ namespace DeliveryApp.Controllers
         // [HttpGet]
         public IActionResult Index(Empresa empresa)
         {
-        using(EmpresaData data = new EmpresaData())
-            return View(data.Read());
+            using (EmpresaData data = new EmpresaData())
+                return View(data.Read());
         }
 
         [HttpGet]
@@ -54,7 +54,7 @@ namespace DeliveryApp.Controllers
         using(EmpresaData data = new EmpresaData())
             data.Delete(id);
 
-        return RedirectToAction("Index");
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -68,6 +68,12 @@ namespace DeliveryApp.Controllers
         [HttpPost]
         public IActionResult Update(Empresa model) 
         {
+<<<<<<< Updated upstream
+=======
+            if (!ModelState.IsValid)
+                return View(model);
+
+>>>>>>> Stashed changes
             using(EmpresaData data = new EmpresaData())
                 data.Update(model);
 

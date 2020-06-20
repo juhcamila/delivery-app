@@ -34,35 +34,59 @@ namespace DeliveryApp.Controllers
         }
 
         [HttpPost] // atributo // annotations
-        public IActionResult Create(Pedido model, Cliente cliente, Empresa empresa, Endereco endereco, ItensComprados itenscomprados) // Model Binding (MVC - HTML, API - JSON)
+        public IActionResult Create(Pedido model) 
         {
 
             if (!ModelState.IsValid)
                 return View(model);
+<<<<<<< Updated upstream
 
 
+=======
+       
+>>>>>>> Stashed changes
             using (PedidoData data = new PedidoData())
-                data.Create(model, cliente, empresa, endereco, itenscomprados);
+                data.Create(model);
 
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(string id)
+        public IActionResult Delete(int id)
         {
 
             using (PedidoData data = new PedidoData())
-                data.Delete(new Guid(id));
+                data.Delete(id);
 
             return RedirectToAction("Index");
         }
 
         [HttpGet]
+<<<<<<< Updated upstream
         public IActionResult Update(int id, int status)
         {
             using (PedidoData data = new PedidoData())
                 data.Update(id, status);
 
             return RedirectToAction("ShowEmpresa", new { id = id });
+=======
+        public IActionResult Update(Empresa model, int status)
+        {
+            using (PedidoData data = new PedidoData())
+                return View(data.Read(model,status));
+        }
+
+        [HttpPost]
+        public IActionResult Update(int id, Pedido model)
+        { 
+            if (!ModelState.IsValid)
+                return View(model);
+       
+
+            using (PedidoData data = new PedidoData())
+                data.Update(model);
+
+            return RedirectToAction("Index");
+>>>>>>> Stashed changes
         }
 
     }

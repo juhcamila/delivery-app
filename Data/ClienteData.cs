@@ -11,7 +11,7 @@ namespace DeliveryApp.Data
     {
         public Cliente Read(int id)
         {
-            string sql = "SELECT * FROM Cliente Where Id = @id";
+            string sql = "SELECT * FROM Cliente c where c.Id = @id";
 
             Cliente cliente = null;
 
@@ -32,17 +32,18 @@ namespace DeliveryApp.Data
             return cliente;
         }
 
-        public void Create(Cliente cliente,Endereco endereco)
+        public void Create(Cliente cliente)
         {
-            string sql = "Insert Into Cliente values (@id,@nome,@cpf,@celular,@id_endereco)";
+            Console.WriteLine(cliente.Nome);
+
+            string sql = "Insert Into Cliente(nome,cpf,celular) values (@nome,@cpf,@celular)";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", cliente.Id);
             cmd.Parameters.AddWithValue("@nome", cliente.Nome);
             cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
             cmd.Parameters.AddWithValue("@celular", cliente.Celular);
-            cmd.Parameters.AddWithValue("@id_endereco", endereco.Id);
+            
 
             cmd.ExecuteNonQuery();
         }
@@ -69,6 +70,15 @@ namespace DeliveryApp.Data
             cmd.Parameters.AddWithValue("@Celular", cliente.Celular);
 
             cmd.ExecuteNonQuery();                 
+        }
+        public void UpdateAddress(string id_endereco,string id_cliente)
+        {
+            string sql = "Update Cliente Set id_endereco = @id_endereco where id_cliente = @id_cliente";
+
+            SqlCommand cmd = new SqlCommand(sql,connection);
+
+            cmd.Parameters.AddWithValue("id_endereco", id_endereco);
+            cmd.Parameters.AddWithValue("id_cliente", id_cliente);
         }
     }
 }

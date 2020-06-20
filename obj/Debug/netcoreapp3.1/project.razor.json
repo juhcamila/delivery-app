@@ -20526,26 +20526,27 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Pedido\\Delete.cshtml",
+      "TargetPath": "Views\\Pedido\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Cliente\\Create.cshtml",
+      "TargetPath": "Views\\Cliente\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Pedido\\Update.cshtml",
+      "TargetPath": "Views\\Pedido\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\empresa\\create.cshtml",
       "TargetPath": "Views\\empresa\\create.cshtml",
       "FileKind": "mvc"
     },
     {
-<<<<<<< Updated upstream
       "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\_ViewImports.cshtml",
-=======
-      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Pedido\\IndexEmpresa.cshtml",
-      "TargetPath": "Views\\Pedido\\IndexEmpresa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Pedido\\ShowEmpresa.cshtml",
-      "TargetPath": "Views\\Pedido\\ShowEmpresa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\_ViewImports.cshtml",
->>>>>>> Stashed changes
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
@@ -20555,18 +20556,23 @@
       "FileKind": "mvc"
     },
     {
-<<<<<<< Updated upstream
-      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
-=======
-      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Shared\\_LayoutEmpresa.cshtml",
-      "TargetPath": "Views\\Shared\\_LayoutEmpresa.cshtml",
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Pedido\\Create.cshtml",
+      "TargetPath": "Views\\Pedido\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Login\\AuthEmpresa.cshtml",
-      "TargetPath": "Views\\Login\\AuthEmpresa.cshtml",
->>>>>>> Stashed changes
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Cliente\\Update.cshtml",
+      "TargetPath": "Views\\Cliente\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Pedido\\IndexEmpresa.cshtml",
+      "TargetPath": "Views\\Pedido\\IndexEmpresa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20585,23 +20591,33 @@
       "FileKind": "mvc"
     },
     {
-<<<<<<< Updated upstream
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Shared\\_LayoutEmpresa.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutEmpresa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-=======
-      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Empresa\\Update.cshtml",
-      "TargetPath": "Views\\Empresa\\Update.cshtml",
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Endereco\\Update.cshtml",
+      "TargetPath": "Views\\Endereco\\Update.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\_ViewStart.cshtml",
-      "TargetPath": "Views\\_ViewStart.cshtml",
->>>>>>> Stashed changes
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\empresa\\Update.cshtml",
+      "TargetPath": "Views\\empresa\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Pedido\\ShowEmpresa.cshtml",
+      "TargetPath": "Views\\Pedido\\ShowEmpresa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
       "FileKind": "mvc"
     }
   ],

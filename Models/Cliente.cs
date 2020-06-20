@@ -19,8 +19,14 @@ namespace DeliveryApp.Models
         public string Celular {get; set;}
 
         public int Id_Endereco { get; set; }       
-        public virtual Endereco Endereco { get; set; }
 
-        
+      //  public int id_usuario { get; set;}
+      //    public virtual Usuario Usuario { get; set; }
+       public virtual Endereco Endereco { get; set; }
+
+       /* public Cliente (){
+            Usuario = new Usuario();
+            Endereco = new Endereco();
+        }*/
     }
 }

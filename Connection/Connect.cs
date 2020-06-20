@@ -14,7 +14,7 @@ namespace DeliveryApp.Connection
               Password=A1b2c3d4e5!";
 
               connection = new SqlConnection(strConn);
-              connection.Open();
+             connection.Open();
         }
 
         public void Dispose(){

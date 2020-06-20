@@ -23,8 +23,14 @@ namespace DeliveryApp.Models
         public int Id_Empresa { get; set; }
         public int Id_Endereco { get; set; }
 
+        public int Id_Produto { get; set; }
+
         public virtual Cliente Cliente { get; set; }
         public virtual Empresa Empresa { get; set; }
         public virtual Endereco Endereco { get; set; }
+
+        public virtual ItensComprados itenscomprados { get; set; }
+
+        
     }
 }
