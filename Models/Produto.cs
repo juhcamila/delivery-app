@@ -17,7 +17,7 @@ namespace DeliveryApp.Models
       [MaxLength(20)]
       public string Descricao { get; set; } 
 
-      public float Valor { get; set; }
+      public Double Valor { get; set; }
 
       public byte[] Imagem { get; set; }
 

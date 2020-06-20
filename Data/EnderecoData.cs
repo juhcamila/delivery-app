@@ -33,9 +33,9 @@ namespace DeliveryApp.Data
             return endereco;
         }
 
-        public void Create(Endereco endereco){
-            string sql = "INSERT INTO Endereco values (@rua, @numero, @bairro, @complemento, @cpf, @Cidade";
-            
+        public Endereco Create(Endereco endereco){
+            string sql = "INSERT INTO Endereco (rua, numero, bairro, complemento, cep, cidade) values (@rua, @numero, @bairro, @complemento, @cep, @cidade)";
+           
             SqlCommand cmd  = new SqlCommand(sql, connection);
 
             cmd.Parameters.AddWithValue("@rua", endereco.Rua);
@@ -46,6 +46,20 @@ namespace DeliveryApp.Data
             cmd.Parameters.AddWithValue("@cidade", endereco.Cidade);
 
             cmd.ExecuteNonQuery();
+
+            sql = "SELECT TOP 1 * FROM Endereco ORDER BY id DESC";
+
+            cmd  = new SqlCommand(sql, connection);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if(reader.Read())
+            {
+                endereco = new Endereco();
+                endereco.Id = (int)reader["Id"];
+            }
+
+            return endereco;
         }
 
         public void Delete(int id){

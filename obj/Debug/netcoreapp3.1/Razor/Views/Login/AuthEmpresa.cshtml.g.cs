@@ -26,7 +26,7 @@ using DeliveryApp.Models;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5ab0f8eb7710d52750fbb02d3e8fb449e3a91920", @"/Views/Login/AuthEmpresa.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a5bcf92d764d48d72c013cc856cf47cd5c89eafa", @"/Views/Login/AuthEmpresa.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a8c17bd6bc47298a47a1f0d59f587625e92904df", @"/Views/_ViewImports.cshtml")]
     public class Views_Login_AuthEmpresa : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<Usuario>
     {
@@ -68,6 +68,15 @@ using DeliveryApp.Models;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
+            WriteLiteral("\r\n");
+#nullable restore
+#line 3 "C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\Views\Login\AuthEmpresa.cshtml"
+  
+    Layout = "_Layout";
+
+#line default
+#line hidden
+#nullable disable
             WriteLiteral("\r\n<div class=\"container\">\r\n  <h2>Entre na sua conta</h2>\r\n  ");
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5ab0f8eb7710d52750fbb02d3e8fb449e3a919207177", async() => {
                 WriteLiteral("\r\n    <div class=\"form-group\">\r\n      <label class=\"control-label col-sm-2\" for=\"email\">E-mail:</label>\r\n      <div class=\"col-sm-10\">\r\n        ");

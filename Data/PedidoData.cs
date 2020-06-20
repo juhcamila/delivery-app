@@ -9,16 +9,15 @@ namespace DeliveryApp.Data
 {
     public class PedidoData : Connect
     {
-        public List<Pedido> Read(Empresa empresa, int status)
+        public List<Pedido> Read(Empresa empresa)
         {
-            string sql = "SELECT p.*,ic.valor, e.nome, ed.bairro,ed.rua, ed.cidade FROM pedido p left join Empresa e ON e.id = p.id_empresa left join endereco ed ON ed.id = p.id_endereco left join Itens_Comprados ic on ic.id_pedido = p.ID WHERE p.id_empresa = @id and p.status_pedido = @status";
+            string sql = "SELECT distinct p.*,  c.nome, ed.bairro, ed.rua, ed.cidade, ed.numero FROM pedido p inner join Cliente c ON c.id = p.id_cliente left join endereco ed ON ed.id = p.id_endereco WHERE p.id_empresa = @id";
 
             List<Pedido> lista = new List<Pedido>();
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", empresa.Id.ToString());
-            cmd.Parameters.AddWithValue("@status_pedido", status.ToString());
+            cmd.Parameters.AddWithValue("@id", empresa.Id);
 
             SqlDataReader reader = cmd.ExecuteReader();
 
@@ -26,25 +25,21 @@ namespace DeliveryApp.Data
             while (reader.Read())
             {
                 Pedido pedido = new Pedido();
-                pedido.Id = new Guid(reader.GetString(0));
-                pedido.Empresa.Nome = reader.GetString(1);
-                pedido.Data_Pedido = reader.GetDateTime(2);
-                pedido.Valor_Frete = reader.GetFloat(3);
-                pedido.Endereco.Bairro = reader.GetString(4);
-                pedido.Endereco.Rua = reader.GetString(5);
-                pedido.Endereco.Cidade = reader.GetString(6);
-                pedido.Tipo_Pagamento = reader.GetInt32(7);
-                pedido.Valor_Troco = reader.GetInt32(8);
-                pedido.Status_Pedido = reader.GetInt32(9);
+                pedido.Id = reader.GetInt32(0);
+                pedido.Cliente = new Cliente();
+                pedido.Cliente.Nome = reader.GetString(9);
+                //pedido.Data_Pedido = reader.GetDateTime(2);
+                pedido.Endereco = new Endereco();
+                pedido.Endereco.Bairro = reader.GetString(10);
+                pedido.Endereco.Rua = reader.GetString(11);
+                pedido.Endereco.Cidade = reader.GetString(12);
+                pedido.Endereco.Numero = reader.GetInt32(13);
+                //pedido.Tipo_Pagamento = reader.GetInt32(7);
+                pedido.Valor_Troco = reader.GetInt32(2);
+                pedido.Status_Pedido = reader.GetInt32(6);
 
-                string ic = "SELECT SUM(valor) where id_pedido = @id";
-
-                SqlCommand cmdIc = new SqlCommand(ic, connection);
-                cmdIc.Parameters.AddWithValue("@id", pedido.Id.ToString());
-
-                SqlDataReader readerIc = cmd.ExecuteReader();
-
-                pedido.Valor_Total = readerIc.GetFloat(1);
+                using(ItensCompradosData data = new ItensCompradosData())
+                    pedido.Valor_Total = data.Soma(pedido);
 
                 lista.Add(pedido);
             }
@@ -52,7 +47,8 @@ namespace DeliveryApp.Data
             return lista;
         }
 
-        public Pedido Read(Guid id)
+
+        public Pedido Read(int id)
         {
             string sql = "SELECT p.*,ic.valor, e.nome, ed.bairro,ed.rua, ed.cidade ,(SELECT SUM(Valor) FROM itens_comprados ic  "
           + "WHERE ic.id_pedido = @id ) AS Valor_Total" +
@@ -62,14 +58,14 @@ namespace DeliveryApp.Data
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", id.ToString());
+            cmd.Parameters.AddWithValue("@id", id);
 
             SqlDataReader reader = cmd.ExecuteReader();
 
             if (reader.Read())
             {
                 pedido = new Pedido();
-                pedido.Id = new Guid((string)reader["Id"]);
+                pedido.Id = (int)reader["Id"];
                 pedido.Data_Pedido = (DateTime)reader["DataPedido"];
                 pedido.Empresa.Nome = (string)reader["Nome"];
                 pedido.Valor_Frete = (float)reader["ValorFrete"];
@@ -117,14 +113,14 @@ namespace DeliveryApp.Data
             cmd.ExecuteNonQuery();
         }
 
-        public void Update(Pedido pedido)
+        public void Update(int id, int status)
         {
             string sql = "UPDATE Pedido SET status_pedido = @status_Pedido WHERE Id = @id";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", pedido.Id);
-            cmd.Parameters.AddWithValue("@status_Pedido", pedido.Status_Pedido);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.Parameters.AddWithValue("@status_Pedido", status);
 
             cmd.ExecuteNonQuery();
         }

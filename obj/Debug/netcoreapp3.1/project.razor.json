@@ -20531,7 +20531,21 @@
       "FileKind": "mvc"
     },
     {
+<<<<<<< Updated upstream
       "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\_ViewImports.cshtml",
+=======
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Pedido\\IndexEmpresa.cshtml",
+      "TargetPath": "Views\\Pedido\\IndexEmpresa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Pedido\\ShowEmpresa.cshtml",
+      "TargetPath": "Views\\Pedido\\ShowEmpresa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\_ViewImports.cshtml",
+>>>>>>> Stashed changes
       "TargetPath": "Views\\_ViewImports.cshtml",
       "FileKind": "mvc"
     },
@@ -20541,8 +20555,18 @@
       "FileKind": "mvc"
     },
     {
+<<<<<<< Updated upstream
       "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
+=======
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Shared\\_LayoutEmpresa.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutEmpresa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Login\\AuthEmpresa.cshtml",
+      "TargetPath": "Views\\Login\\AuthEmpresa.cshtml",
+>>>>>>> Stashed changes
       "FileKind": "mvc"
     },
     {
@@ -20561,6 +20585,7 @@
       "FileKind": "mvc"
     },
     {
+<<<<<<< Updated upstream
       "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
       "FileKind": "mvc"
@@ -20568,6 +20593,15 @@
     {
       "FilePath": "c:\\Users\\COBMAX\\Desktop\\facul\\trabalho\\delivery-app\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+=======
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Empresa\\Update.cshtml",
+      "TargetPath": "Views\\Empresa\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\_ViewStart.cshtml",
+      "TargetPath": "Views\\_ViewStart.cshtml",
+>>>>>>> Stashed changes
       "FileKind": "mvc"
     }
   ],

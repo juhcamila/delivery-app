@@ -21,7 +21,6 @@ namespace DeliveryApp.Models
         public string Complemento { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório.")]
-        [MinLength(9, ErrorMessage = "Cep Inválido.")]
         [MaxLength(9)]
         public string Cep { get; set; }
 

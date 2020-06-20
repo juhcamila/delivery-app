@@ -26,7 +26,7 @@ using DeliveryApp.Models;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"77a2804b95fd303a20a56ec194ea6ca59278fafa", @"/Views/_ViewStart.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c267eec1d37f04ff6a93903a61f77c6f34a3f907", @"/Views/_ViewStart.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a8c17bd6bc47298a47a1f0d59f587625e92904df", @"/Views/_ViewImports.cshtml")]
     public class Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
@@ -36,7 +36,7 @@ using DeliveryApp.Models;
 #nullable restore
 #line 1 "C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\Views\_ViewStart.cshtml"
   
-    Layout = "_Layout";
+    Layout = "_LayoutEmpresa";
 
 #line default
 #line hidden

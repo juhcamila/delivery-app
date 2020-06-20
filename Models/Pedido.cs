@@ -6,14 +6,14 @@ namespace DeliveryApp.Models
 {
     public class Pedido
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public int Status_Pedido { get; set; }
         public float Valor_Frete { get; set; }
         public float Valor_Troco { get; set; }
         public int Tipo_Pagamento { get; set; }
 
-        public float Valor_Total { get; set; }
+        public Double Valor_Total { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

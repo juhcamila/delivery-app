@@ -18,7 +18,7 @@ namespace DeliveryApp.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
-                return RedirectToAction("UserPage");
+                return RedirectToAction("IndexEmpresa", "Pedido");
             }
              return View();
         }
@@ -38,7 +38,7 @@ namespace DeliveryApp.Controllers
                     if (result)
                     {
                         Login(usuario);
-                        return RedirectToAction("Index", "Home");
+                        return RedirectToAction("IndexEmpresa", "Pedido");
                     }
                     else
                     {
@@ -54,6 +54,7 @@ namespace DeliveryApp.Controllers
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, usuario.Email),
+                new Claim(ClaimTypes.NameIdentifier, usuario.Id.ToString()),
                 new Claim(ClaimTypes.Role, "Usuario_Comum")
             };
 

@@ -12,6 +12,7 @@ namespace DeliveryApp.Data
         
         }
 
+
         public Usuario Read(int id){
             string sql = "SELECT * FROM Usuario WHERE id = @id";
 
@@ -35,7 +36,7 @@ namespace DeliveryApp.Data
             return usuario;
         }
 
-        public void Create(Usuario usuario){
+        public Usuario Create(Usuario usuario){
             string sql = "INSERT INTO Usuario (email, senha, tipo) values (@email, @senha, 1)";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
@@ -45,6 +46,20 @@ namespace DeliveryApp.Data
             cmd.Parameters.AddWithValue("@tipo", usuario.Tipo);
 
             cmd.ExecuteNonQuery();
+
+            sql = "SELECT TOP 1 * FROM Usuario ORDER BY id DESC";
+
+            cmd  = new SqlCommand(sql, connection);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if(reader.Read())
+            {
+                usuario = new Usuario();
+                usuario.Id = (int)reader["Id"];
+            }
+
+            return usuario;
         }
 
         public Boolean Logar(Usuario usuario) {

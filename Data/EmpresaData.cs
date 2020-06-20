@@ -35,6 +35,31 @@ namespace DeliveryApp.Data
 
             return lista;
         }
+
+        public Empresa GetEmpresa(string email)
+        {
+            string sql = "SELECT * FROM Empresa INNER JOIN Usuario ON Usuario.email = @email and Usuario.id = Empresa.id_usuario";
+        
+            Empresa empresa = null;
+
+            SqlCommand cmd = new SqlCommand(sql, connection);
+
+            cmd.Parameters.AddWithValue("@email", email);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if(reader.Read())
+            {
+                empresa = new Empresa();
+                empresa.Id = (int)reader["Id"];
+                empresa.Nome = (string)reader["Nome"];
+                empresa.Cnpj = (string)reader["Cnpj"];
+                empresa.Telefone = (string)reader["Telefone"];
+            }
+
+            return empresa;
+        }
+
         public Empresa Read(int id){
             string sql = "SELECT * FROM Empresa WHERE id = @id";
 
@@ -63,7 +88,8 @@ namespace DeliveryApp.Data
         }
 
         public void Create(Empresa empresa){
-            string sql = "INSERT INTO Empresa values (@nome, @cnpj, @telefone, @endereco_id, @usuario_id)";
+
+            string sql = "INSERT INTO Empresa (nome, cnpj, telefone, id_endereco, id_usuario) values (@nome, @cnpj, @telefone, @endereco_id, @usuario_id)";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
 
@@ -89,7 +115,7 @@ namespace DeliveryApp.Data
 
         public void Update(Empresa empresa){
             string sql = "UPDATE Empresa SET nome = @nome, cnpj = @cnpj, telefone = @telefone WHERE id = @id";
-
+                Console.WriteLine(empresa.Id);
             SqlCommand cmd = new SqlCommand(sql, connection);
 
             cmd.Parameters.AddWithValue("@id", empresa.Id);

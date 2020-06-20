@@ -52,6 +52,7 @@ C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Deli
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.dll
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.pdb
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\empresa\create.cshtml.g.cs
+<<<<<<< Updated upstream
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -88,3 +89,9 @@ C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Deli
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\staticwebassets\DeliveryApp.StaticWebAssets.Manifest.cache
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\staticwebassets\DeliveryApp.StaticWebAssets.xml
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\DeliveryApp.genruntimeconfig.cache
+=======
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutEmpresa.cshtml.g.cs
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\IndexEmpresa.cshtml.g.cs
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\ShowEmpresa.cshtml.g.cs
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Empresa\Update.cshtml.g.cs
+>>>>>>> Stashed changes

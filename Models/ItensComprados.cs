@@ -6,7 +6,7 @@ namespace DeliveryApp.Models
     public class ItensComprados
     {
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage = "Campo obrigatório.")]
         public int Quantidade { get; set; }
 
@@ -18,7 +18,7 @@ namespace DeliveryApp.Models
         public int Id_Pedido { get; set; }
         public virtual Produto Produto { get; set; }
 
-        public virtual Pedido pedido { get; set; }
+        public virtual Pedido Pedido { get; set; }
 
         public float valor_frete()
         {

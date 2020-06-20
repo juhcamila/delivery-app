@@ -1,0 +1,29 @@
+@model List<Pedido> 
+
+  @* <span>@Model.Count</span> *@
+
+   <h2 class="text-danger">Pedidos</h2>
+<br>
+  @foreach(var pedido in Model){
+  <div class="card" style="width: 18rem;">
+    <div class="card-body text-center">
+      
+      <h5 class="card-title text-danger">Cliente: @pedido.Cliente.Nome</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Valor do Pedido: @pedido.Valor_Total</h6>
+      <p class="card-text">Endereço: Rua @pedido.Endereco.Rua, @pedido.Endereco.Numero, 
+          @pedido.Endereco.Bairro, @pedido.Endereco.Cidade </p>
+       @if (pedido.Status_Pedido == 0) {
+           <h6 class="card-text">Pedido Iniciado</h6>
+       } else if (pedido.Status_Pedido == 1) {
+           <h6 class="card-text">Pedido Aceito</h6>
+       }else if (pedido.Status_Pedido == 2) {
+           <h6 class="card-text">Em Preparação</h6>
+       }else {
+          <h6 class="card-text">Pedido saiu para Entrega</h6> 
+       }      
+  
+
+        <a asp-action="ShowEmpresa" asp-route-id="@pedido.Id">Visualizar Pedido</a> 
+    </div>
+  </div>
+   }

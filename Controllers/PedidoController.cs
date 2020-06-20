@@ -9,11 +9,23 @@ namespace DeliveryApp.Controllers
     public class PedidoController : Controller
     {
         // [HttpGet]
-        public IActionResult Index(Empresa empresa)
+        public IActionResult IndexEmpresa()
         {
-            using (PedidoData data = new PedidoData())
-                return View(data.Read(empresa,1));
+            Empresa empresa = null;
+
+            using(EmpresaData data = new EmpresaData())
+                empresa = data.GetEmpresa(User.Identity.Name);
+
+            using(PedidoData data = new PedidoData())
+                return View(data.Read(empresa));
         }
+
+        public IActionResult ShowEmpresa(int? id)
+        {
+            using(ItensCompradosData data = new ItensCompradosData())
+                return View(data.Read(Convert.ToInt32(id)));
+        }
+
 
         [HttpGet]
         public IActionResult Create()
@@ -28,7 +40,6 @@ namespace DeliveryApp.Controllers
             if (!ModelState.IsValid)
                 return View(model);
 
-            model.Id = Guid.NewGuid();
 
             using (PedidoData data = new PedidoData())
                 data.Create(model, cliente, empresa, endereco, itenscomprados);
@@ -46,24 +57,12 @@ namespace DeliveryApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Update(string id)
+        public IActionResult Update(int id, int status)
         {
             using (PedidoData data = new PedidoData())
-                return View(data.Read(new Guid(id)));
-        }
+                data.Update(id, status);
 
-        [HttpPost]
-        public IActionResult Update(string id, Pedido model)
-        { 
-            if (!ModelState.IsValid)
-                return View(model);
-
-            model.Id = new Guid(id);
-
-            using (PedidoData data = new PedidoData())
-                data.Update(model);
-
-            return RedirectToAction("Index");
+            return RedirectToAction("ShowEmpresa", new { id = id });
         }
 
     }

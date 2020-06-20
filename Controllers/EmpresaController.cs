@@ -28,15 +28,20 @@ namespace DeliveryApp.Controllers
             //    ModelState.AddModelError("Endereco.Numero", "Tem que ser maior que 100, sua anta");
            //     return View(model);
           //  }
-           
-            if(ModelState.IsValid)
+           Usuario usuario = null;
+           Endereco endereco = null;
+
+            if(!ModelState.IsValid)
                 return View(model);
 
             using(UsuarioData data = new UsuarioData())
-                data.Create(model.Usuario);
+                 usuario = data.Create(model.Usuario);
 
             using(EnderecoData data = new EnderecoData())
-                data.Create(model.Endereco);    
+                endereco = data.Create(model.Endereco);    
+            
+            model.Usuario.Id = usuario.Id;
+            model.Endereco.Id = endereco.Id;
 
             using(EmpresaData data = new EmpresaData())
                 data.Create(model);
@@ -53,22 +58,20 @@ namespace DeliveryApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Update(int id)  
+        public IActionResult Update()  
         {
-        using(EmpresaData data = new EmpresaData())
-            return View(data.Read(id));
+
+            using(EmpresaData data = new EmpresaData())
+                return View(data.GetEmpresa(User.Identity.Name));
         }
 
         [HttpPost]
         public IActionResult Update(Empresa model) 
         {
-            if(!ModelState.IsValid)
-            return View(model);
-
             using(EmpresaData data = new EmpresaData())
-            data.Update(model);
+                data.Update(model);
 
-            return RedirectToAction("Index");
+            return RedirectToAction("IndexEmpresa", "Pedido");
         }
 
     }
