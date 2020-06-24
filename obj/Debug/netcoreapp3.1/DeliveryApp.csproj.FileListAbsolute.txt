@@ -114,3 +114,6 @@ C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Ra
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\create.cshtml.g.cs
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\bin\Debug\netcoreapp3.1\package.json
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Carrinho.cshtml.g.cs
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Update.cshtml.g.cs
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutLogin.cshtml.g.cs
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutIndex.cshtml.g.cs

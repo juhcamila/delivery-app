@@ -8,6 +8,7 @@
     <a asp-action="create" class="float-right btn btn-danger">Adicionar Produto</a>
   </div>    
   <br/>
+  <h2 class="text-danger">Produtos</h2>
   <table class="table" style="margin-top: 20px;">
     <thead>
       <tr>
@@ -25,10 +26,10 @@
         <td>@produto.Descricao</td>
         <td>@produto.Valor</td>
         <td><img src="/imagens/@produto.NomeImagem" style="width: 30px;"></td>
+        <td>
+          <a asp-action="update" asp-route-id="@produto.Id">Editar</a> 
+        </td>
       </tr>
     }
     </tbody>
   </table>
-
-        <a asp-action="AdicionarCarrinho" asp-route-id="1">Visualizar Pedido</a> 
-        <a asp-action="AdicionarCarrinho" asp-route-id="2">Visualizar Pedido</a> 

@@ -42,7 +42,7 @@ namespace DeliveryApp
             });
             //adicionando o serviço de cookies na aplicação
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options => options.LoginPath = "/Login/Index");
+                .AddCookie(options => options.LoginPath = "/Home/Index");
             services.AddControllersWithViews();
         }
 

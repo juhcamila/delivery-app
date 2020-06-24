@@ -74,29 +74,16 @@ namespace DeliveryApp.Data
             cmd.ExecuteNonQuery();
         }
 
-        public void Delete(int id){
-            string sql = "DELETE FROM Produto WHERE Id = @id";
-
-            SqlCommand cmd = new SqlCommand(sql, connection);
-
-            cmd.Parameters.AddWithValue("@id", id);
-
-            cmd.ExecuteNonQuery();
-        }
-
-
         public void Update(Produto produto){
-            string sql = "UPDATE Produto SET Nome = @nome, Descricao = @descricao, Valor = @valor, Imagem = @imagem, id_empresa = @id_empresa WHERE Id = @id";
+            string sql = "UPDATE Produto SET nome = @nome, descricao = @descricao, valor = @valor, nome_imagem = @imagem WHERE id = @id";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
-
            
             cmd.Parameters.AddWithValue("@id", produto.Id);
             cmd.Parameters.AddWithValue("@nome", produto.Nome);
             cmd.Parameters.AddWithValue("@descricao", produto.Descricao);
             cmd.Parameters.AddWithValue("@valor", produto.Valor);
-            cmd.Parameters.AddWithValue("@imagem", produto.Imagem);
-            cmd.Parameters.AddWithValue("@id_empresa", produto.EmpresaId);
+            cmd.Parameters.AddWithValue("@imagem", produto.NomeImagem);
 
             cmd.ExecuteNonQuery(); 
         }

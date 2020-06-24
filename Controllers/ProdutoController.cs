@@ -83,15 +83,6 @@ namespace DeliveryApp.Controllers
         return RedirectToAction("Index");
       }
 
-    [Authorize]
-    public IActionResult Delete(int id) {
-
-      using(ProdutoData data = new ProdutoData())
-        data.Delete(id);
-
-      return RedirectToAction("Index");
-    }
-
     [HttpGet]
     [Authorize]
     public IActionResult Update(int id)  
@@ -104,9 +95,32 @@ namespace DeliveryApp.Controllers
     [Authorize]
     public IActionResult Update(Produto model) 
     {
+        Produto produto = null;
+
         if(!ModelState.IsValid)
           return View(model);
 
+        using(ProdutoData data = new ProdutoData())
+            produto = data.Read(model.Id);  
+
+        if (model.Imagem != null) {
+          
+          string fullPath = "wwwroot/imagens/" + model.NomeImagem;
+        
+          if (System.IO.File.Exists(fullPath))
+            System.IO.File.Delete(fullPath);
+
+          FileStream fs = new FileStream(Path.Combine(Path.Combine(env.WebRootPath, "imagens"), model.Imagem.FileName), FileMode.Create);
+
+          model.Imagem.CopyTo(fs);
+
+          fs.Flush();
+          fs.Close();  
+
+          model.NomeImagem = model.Imagem.FileName;
+        }else{
+          model.NomeImagem = produto.NomeImagem;
+        }
         using(ProdutoData data = new ProdutoData())
           data.Update(model);
 

@@ -20606,6 +20606,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Produto\\Update.cshtml",
+      "TargetPath": "Views\\Produto\\Update.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Shared\\_LayoutIndex.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutIndex.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Empresa\\Update.cshtml",
       "TargetPath": "Views\\Empresa\\Update.cshtml",
       "FileKind": "mvc"
@@ -20638,6 +20648,11 @@
     {
       "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Produto\\create.cshtml",
       "TargetPath": "Views\\Produto\\create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\jucie\\OneDrive\\Documentos\\pos\\C#\\deliveryApp\\Views\\Shared\\_LayoutLogin.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutLogin.cshtml",
       "FileKind": "mvc"
     }
   ],
