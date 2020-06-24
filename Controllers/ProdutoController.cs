@@ -6,6 +6,7 @@ using System;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DeliveryApp.Controllers
 {
@@ -16,6 +17,7 @@ namespace DeliveryApp.Controllers
           this.env = env;
         }
 
+        [Authorize]
         public IActionResult AdicionarCarrinho(int id)
         {
           HttpContext.Session.SetInt32("produto" + id, id);
@@ -29,6 +31,7 @@ namespace DeliveryApp.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Index()
         {
             Empresa empresa = null;
@@ -40,45 +43,47 @@ namespace DeliveryApp.Controllers
                 return View(data.Read(empresa));
         }
 
-           [HttpGet]
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
 
-        [HttpPost] 
-    public IActionResult Create(Produto model) 
-    {
+      [HttpPost] 
+      [Authorize]
+      public IActionResult Create(Produto model) 
+      {
 
-      if (model.Imagem == null){
-         ModelState.AddModelError("Imagem", "Você deve enviar uma imagem!");
-         return View(model);
+        if (model.Imagem == null){
+          ModelState.AddModelError("Imagem", "Você deve enviar uma imagem!");
+          return View(model);
+        }
+
+        FileStream fs = new FileStream(Path.Combine(Path.Combine(env.WebRootPath, "imagens"), model.Imagem.FileName), FileMode.Create);
+
+        model.Imagem.CopyTo(fs);
+
+        fs.Flush();
+        fs.Close();
+
+        Empresa empresa = null;
+
+        using(EmpresaData data = new EmpresaData())
+            empresa = data.GetEmpresa(User.Identity.Name);
+            
+        // VALIDAÇÃO
+        if(!ModelState.IsValid)
+          return View(model);
+
+        model.NomeImagem = model.Imagem.FileName;
+        model.EmpresaId = empresa.Id;
+        using(ProdutoData data = new ProdutoData())
+          data.Create(model);
+
+        return RedirectToAction("Index");
       }
 
-      FileStream fs = new FileStream(Path.Combine(Path.Combine(env.WebRootPath, "imagens"), model.Imagem.FileName), FileMode.Create);
-
-      model.Imagem.CopyTo(fs);
-
-      fs.Flush();
-      fs.Close();
-
-      Empresa empresa = null;
-
-      using(EmpresaData data = new EmpresaData())
-          empresa = data.GetEmpresa(User.Identity.Name);
-          
-      // VALIDAÇÃO
-      if(!ModelState.IsValid)
-        return View(model);
-
-      model.NomeImagem = model.Imagem.FileName;
-      model.EmpresaId = empresa.Id;
-      using(ProdutoData data = new ProdutoData())
-        data.Create(model);
-
-      return RedirectToAction("Index");
-    }
-
+    [Authorize]
     public IActionResult Delete(int id) {
 
       using(ProdutoData data = new ProdutoData())
@@ -88,6 +93,7 @@ namespace DeliveryApp.Controllers
     }
 
     [HttpGet]
+    [Authorize]
     public IActionResult Update(int id)  
     {
       using(ProdutoData data = new ProdutoData())
@@ -95,6 +101,7 @@ namespace DeliveryApp.Controllers
     }
 
     [HttpPost]
+    [Authorize]
     public IActionResult Update(Produto model) 
     {
         if(!ModelState.IsValid)

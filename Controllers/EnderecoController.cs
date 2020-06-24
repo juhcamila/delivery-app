@@ -3,6 +3,7 @@ using DeliveryApp.Data;
 using DeliveryApp.Models;
 using System.Collections.Generic;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DeliveryApp.Controllers
 {
@@ -15,14 +16,7 @@ namespace DeliveryApp.Controllers
             return View(data.Read(cliente.Endereco.Id));
         }
 
-        public IActionResult Index(Empresa empresa)
-        {
-        using(EnderecoData data = new EnderecoData())
-            return View(data.Read(empresa.Endereco.Id));
-        }
-
-
-           [HttpGet]
+        [HttpGet]
         public IActionResult Create()
         {
             return View(new Endereco());
@@ -64,6 +58,7 @@ namespace DeliveryApp.Controllers
 
 
     [HttpPost]
+    [Authorize]
     public IActionResult UpdateEmpresa(Endereco model) 
     {
 
@@ -77,6 +72,7 @@ namespace DeliveryApp.Controllers
     }
 
     [HttpGet]
+    [Authorize]
     public IActionResult Update(int id)  
     {
       id = 3;

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
 
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DeliveryApp.Controllers
 {
@@ -24,7 +25,9 @@ namespace DeliveryApp.Controllers
 
            return View(lista);
         }
-        // [HttpGet]
+
+        [HttpGet]
+        [Authorize]
         public IActionResult IndexEmpresa()
         {
             Empresa empresa = null;
@@ -36,6 +39,7 @@ namespace DeliveryApp.Controllers
                 return View(data.Read(empresa));
         }
 
+        [Authorize]
         public IActionResult ShowEmpresa(int? id)
         {
             using(ItensCompradosData data = new ItensCompradosData())
