@@ -64,29 +64,17 @@ namespace DeliveryApp.Data
             return itenscomprados;
         }
 
-        public void Create(ItensComprados itenscomprados,Produto produto)
+        public void Create(ItensComprados itenscomprados)
         {
 
-            string sql = "INSERT INTO itens_comprados VALUES (@id,@quantidade,@valor,@id_produto,@id_pedido)";
+            string sql = "INSERT INTO itens_comprados(quantidade, valor, id_produto, id_pedido) VALUES (@quantidade, @valor , @id_produto, @id_pedido)";
             
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", itenscomprados.Id);
             cmd.Parameters.AddWithValue("@quantidade", itenscomprados.Quantidade);
             cmd.Parameters.AddWithValue("@valor", itenscomprados.Valor);
-            cmd.Parameters.AddWithValue("@id_produto", produto.Id);
-           // cmd.Parameters.AddWithValue("@id_pedido", pedido.Id);
-            cmd.ExecuteNonQuery();
-        }
-
-        public void Delete(Guid id)
-        {
-            string sql = "DELETE FROM Itens_comprados WHERE Id = @id";
-
-            SqlCommand cmd = new SqlCommand(sql, connection);
-
-            cmd.Parameters.AddWithValue("@id", id.ToString());
-
+            cmd.Parameters.AddWithValue("@id_produto", itenscomprados.Id_Produto);
+            cmd.Parameters.AddWithValue("@id_pedido", itenscomprados.Id_Pedido);
             cmd.ExecuteNonQuery();
         }
 

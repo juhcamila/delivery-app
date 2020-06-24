@@ -8,9 +8,10 @@ namespace DeliveryApp.Data
     public class EnderecoData : Connect
     {
         public Endereco Read(int id){
-            string sql = "SELECT * FROM Endereco e inner join cliente c on e.id = c.id_endereco where e.id = @id";
+            string sql = "SELECT * FROM Endereco where id = @id";
 
             Endereco endereco = null;
+            
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
@@ -28,6 +29,7 @@ namespace DeliveryApp.Data
                 endereco.Complemento = (string)reader["Complemento"];
                 endereco.Cep = (string)reader["Cep"];
                 endereco.Cidade = (string)reader["Cidade"];
+                               Console.WriteLine(endereco.Cidade);
             }
 
             return endereco;

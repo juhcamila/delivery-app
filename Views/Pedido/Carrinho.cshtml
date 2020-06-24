@@ -1,0 +1,26 @@
+@model List<Produto>
+
+
+  <h2 class="text-danger">Carrinho</h2>
+  <table class="table" style="margin-top: 20px;">
+    <thead>
+      <tr>
+       <th>Imagem</th>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach(var produto in Model){
+      <tr class="text-danger">
+       <td><img src="/imagens/@produto.NomeImagem" style="width: 60px;"></td>
+        <td>@produto.Nome</td>
+        <td>@produto.Descricao</td>
+        <td>@produto.Valor</td>
+        <td><a href="/Produto/removercarrinho/@produto.Id">Excluir</a> </td>
+      </tr>
+    }
+    </tbody>
+  </table>

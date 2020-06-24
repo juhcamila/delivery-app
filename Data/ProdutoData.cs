@@ -26,7 +26,8 @@ namespace DeliveryApp.Data
                 produto.Id = reader.GetInt32(0);
                 produto.Nome = reader.GetString(1);
                 produto.Descricao = reader.GetString(2);
-                produto.Valor = reader.GetFloat(3);
+                produto.Valor = reader.GetDouble(3);
+                produto.NomeImagem = reader.GetString(5);
             
 
                 lista.Add(produto);
@@ -51,24 +52,24 @@ namespace DeliveryApp.Data
                 produto.Id = (int)reader["Id"];
                 produto.Nome = (string)reader["Nome"];
                 produto.Descricao = (string)reader["Descricao"];
-                produto.Valor = (float)reader["Valor"];
-                produto.Imagem = (byte[])reader["Imagem"];
-                produto.EmpresaId = (int)reader["EmpresaId"];
+                produto.Valor = (Double)reader["Valor"];
+                produto.NomeImagem = (string)reader["nome_imagem"];
+                produto.EmpresaId = (int)reader["id_empresa"];
             }
 
             return produto;
         }
 
-        public void Create(Produto produto, Empresa empresa){
-            string sql = "INSERT INTO Produto values (@nome, @descricao, @valor, @imagem, @id_empresa";
+        public void Create(Produto produto){
+            string sql = "INSERT INTO Produto (nome, descricao, valor, nome_imagem, id_empresa) values (@nome, @descricao, @valor, @nome_imagem, @id_empresa)";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
 
             cmd.Parameters.AddWithValue("@nome", produto.Nome);
             cmd.Parameters.AddWithValue("@descricao", produto.Descricao);
             cmd.Parameters.AddWithValue("@valor", produto.Valor);
-            cmd.Parameters.AddWithValue("@imagem", produto.Imagem);
-            cmd.Parameters.AddWithValue("@id_empresa", empresa.Id);
+            cmd.Parameters.AddWithValue("@nome_imagem", produto.NomeImagem);
+            cmd.Parameters.AddWithValue("@id_empresa", produto.EmpresaId);
 
             cmd.ExecuteNonQuery();
         }

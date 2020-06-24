@@ -14,7 +14,7 @@
     <div class="form-group">
       <label class="control-label col-sm-12" for="Cnpj">CNPJ:</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control"  placeholder="CNPJ"  asp-for="Cnpj">
+        <input type="text" class="form-control cnpj"  placeholder="CNPJ"  asp-for="Cnpj">
         <span asp-validation-for="Cnpj"></span>
      </div>
     </div>
@@ -22,7 +22,7 @@
     <div class="form-group">
       <label class="control-label col-sm-12" for="Telefone">Telefone da Empresa:</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" placeholder="Telefone" asp-for="Telefone">
+        <input type="text" class="form-control phone_with_ddd" placeholder="Telefone" asp-for="Telefone">
         <span asp-validation-for="Telefone"></span>
      </div>
     </div>
@@ -32,7 +32,7 @@
     <div class="form-group">
       <label class="control-label col-sm-12" for="Cep">CEP:</label>
       <div class="col-sm-10">          
-        <input type="text" class="form-control" placeholder="CEP" asp-for="Endereco.Cep">
+        <input type="text" class="form-control cep" placeholder="CEP" asp-for="Endereco.Cep">
         <span asp-validation-for="Endereco.Cep"></span>
      </div>
     </div>

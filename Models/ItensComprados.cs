@@ -11,7 +11,7 @@ namespace DeliveryApp.Models
         public int Quantidade { get; set; }
 
         [Required(ErrorMessage = "Campo obrigatório.")]
-        public float Valor { get; set; }
+        public Double Valor { get; set; }
 
         public int Id_Produto { get; set; }
 
@@ -19,14 +19,5 @@ namespace DeliveryApp.Models
         public virtual Produto Produto { get; set; }
 
         public virtual Pedido Pedido { get; set; }
-
-        public float valor_frete()
-        {
-            float vlr = Valor;
-            int qtd = Quantidade;
-            float valor_frete = (vlr * qtd )*12 /100 + 5;
-
-            return valor_frete;
-        }
     }
 }

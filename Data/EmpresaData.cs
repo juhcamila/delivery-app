@@ -55,6 +55,7 @@ namespace DeliveryApp.Data
                 empresa.Nome = (string)reader["Nome"];
                 empresa.Cnpj = (string)reader["Cnpj"];
                 empresa.Telefone = (string)reader["Telefone"];
+                empresa.EnderecoId = (int)reader["id_endereco"];
             }
 
             return empresa;

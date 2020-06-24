@@ -51,6 +51,32 @@ namespace DeliveryApp.Controllers
     }
 
     [HttpGet]
+    public IActionResult UpdateEmpresa()  
+    {
+      Empresa empresa = null;
+
+      using(EmpresaData data = new EmpresaData())
+          empresa = data.GetEmpresa(User.Identity.Name);
+
+      using(EnderecoData data = new EnderecoData())
+          return View(data.Read(empresa.EnderecoId));
+    }
+
+
+    [HttpPost]
+    public IActionResult UpdateEmpresa(Endereco model) 
+    {
+
+        if(!ModelState.IsValid)
+          return View(model);
+
+        using(EnderecoData data = new EnderecoData())
+          data.Update(model);
+
+        return RedirectToAction("IndexEmpresa","Pedido");
+    }
+
+    [HttpGet]
     public IActionResult Update(int id)  
     {
       id = 3;

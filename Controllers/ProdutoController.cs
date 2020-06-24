@@ -3,33 +3,78 @@ using DeliveryApp.Data;
 using DeliveryApp.Models;
 using System.Collections.Generic;
 using System;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 
 namespace DeliveryApp.Controllers
 {
     public class ProdutoController : Controller
     {
-        [HttpGet]
-        public IActionResult Index(Empresa empresa)
+        private readonly IWebHostEnvironment env;
+        public ProdutoController(IWebHostEnvironment env){
+          this.env = env;
+        }
+
+        public IActionResult AdicionarCarrinho(int id)
         {
-        using(ProdutoData data = new ProdutoData())
-            return View(data.Read(empresa.Id));
+          HttpContext.Session.SetInt32("produto" + id, id);
+          return RedirectToAction("Carrinho", "Pedido");
+        }
+
+        public IActionResult RemoverCarrinho(int id)
+        {
+          HttpContext.Session.Remove("produto" + id);
+          return RedirectToAction("Carrinho", "Pedido");
+        }
+
+        [HttpGet]
+        public IActionResult Index()
+        {
+            Empresa empresa = null;
+
+            using(EmpresaData data = new EmpresaData())
+                empresa = data.GetEmpresa(User.Identity.Name);
+
+            using(ProdutoData data = new ProdutoData())
+                return View(data.Read(empresa));
         }
 
            [HttpGet]
         public IActionResult Create()
         {
-            return View(new Produto());
+            return View();
         }
 
         [HttpPost] 
-    public IActionResult Create(Produto model, Empresa empresa) 
+    public IActionResult Create(Produto model) 
     {
+
+      if (model.Imagem == null){
+         ModelState.AddModelError("Imagem", "Você deve enviar uma imagem!");
+         return View(model);
+      }
+
+      FileStream fs = new FileStream(Path.Combine(Path.Combine(env.WebRootPath, "imagens"), model.Imagem.FileName), FileMode.Create);
+
+      model.Imagem.CopyTo(fs);
+
+      fs.Flush();
+      fs.Close();
+
+      Empresa empresa = null;
+
+      using(EmpresaData data = new EmpresaData())
+          empresa = data.GetEmpresa(User.Identity.Name);
+          
       // VALIDAÇÃO
       if(!ModelState.IsValid)
         return View(model);
 
+      model.NomeImagem = model.Imagem.FileName;
+      model.EmpresaId = empresa.Id;
       using(ProdutoData data = new ProdutoData())
-        data.Create(model, empresa);
+        data.Create(model);
 
       return RedirectToAction("Index");
     }
@@ -50,7 +95,7 @@ namespace DeliveryApp.Controllers
     }
 
     [HttpPost]
-    public IActionResult Update(int id, Produto model) 
+    public IActionResult Update(Produto model) 
     {
         if(!ModelState.IsValid)
           return View(model);

@@ -2,13 +2,14 @@ using Microsoft.AspNetCore.Mvc;
 using DeliveryApp.Data;
 using DeliveryApp.Models;
 using System;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace DeliveryApp.Controllers
 {
     public class EmpresaController : Controller
     {
         // [HttpGet]
+        [Authorize]
         public IActionResult Index(Empresa empresa)
         {
             using (EmpresaData data = new EmpresaData())
@@ -49,15 +50,9 @@ namespace DeliveryApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Delete(int id) {
-
-        using(EmpresaData data = new EmpresaData())
-            data.Delete(id);
-
-            return RedirectToAction("Index");
-        }
-
+        
         [HttpGet]
+        [Authorize]
         public IActionResult Update()  
         {
 
@@ -66,14 +61,9 @@ namespace DeliveryApp.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public IActionResult Update(Empresa model) 
         {
-<<<<<<< Updated upstream
-=======
-            if (!ModelState.IsValid)
-                return View(model);
-
->>>>>>> Stashed changes
             using(EmpresaData data = new EmpresaData())
                 data.Update(model);
 

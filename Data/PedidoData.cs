@@ -26,7 +26,6 @@ namespace DeliveryApp.Data
             {
                 Pedido pedido = new Pedido();
                 pedido.Id = reader.GetInt32(0);
-<<<<<<< Updated upstream
                 pedido.Cliente = new Cliente();
                 pedido.Cliente.Nome = reader.GetString(9);
                 //pedido.Data_Pedido = reader.GetDateTime(2);
@@ -41,37 +40,12 @@ namespace DeliveryApp.Data
 
                 using(ItensCompradosData data = new ItensCompradosData())
                     pedido.Valor_Total = data.Soma(pedido);
-=======
-                pedido.Empresa.Nome = reader.GetString(1);
-                pedido.Data_Pedido = reader.GetDateTime(2);
-                pedido.Valor_Frete = reader.GetFloat(3);
-                pedido.Endereco.Bairro = reader.GetString(4);
-                pedido.Endereco.Rua = reader.GetString(5);
-                pedido.Endereco.Cidade = reader.GetString(6);
-                pedido.Tipo_Pagamento = reader.GetInt32(7);
-                pedido.Valor_Troco = reader.GetInt32(8);
-                pedido.Status_Pedido = reader.GetInt32(9);
-
-                string ic = "SELECT SUM(valor) where id_pedido = @id";
-
-                SqlCommand cmdIc = new SqlCommand(ic, connection);
-                cmdIc.Parameters.AddWithValue("@id", pedido.Id.ToString());
-
-                SqlDataReader readerIc = cmd.ExecuteReader();
-
-                pedido.Valor_Total = readerIc.GetFloat(1);
->>>>>>> Stashed changes
 
                 lista.Add(pedido);
             }
 
             return lista;
         }
-
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         public Pedido Read(int id)
         {
             string sql = "SELECT p.*,ic.valor, e.nome, ed.bairro,ed.rua, ed.cidade ,(SELECT SUM(Valor) FROM itens_comprados ic  "
@@ -104,7 +78,7 @@ namespace DeliveryApp.Data
             return pedido;
         }
 
-        public void Create(Pedido pedido)
+        public Pedido Create(Pedido pedido)
         {
 
             string sql = "INSERT INTO Pedido VALUES (@id, @tipo_Pagamento, @data_Pedido, @valor_Frete, @status_Pedido, @id_empresa, @id_cliente, @id_endereco)";
@@ -122,6 +96,20 @@ namespace DeliveryApp.Data
             //cmd.Parameters.AddWithValue("@valor_total", pedido.itenscomprados.Valor);
 
             cmd.ExecuteNonQuery();
+
+            sql = "SELECT TOP 1 * FROM Pedido ORDER BY id DESC";
+
+            cmd  = new SqlCommand(sql, connection);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if(reader.Read())
+            {
+                pedido = new Pedido();
+                pedido.Id = (int)reader["Id"];
+            }
+
+            return pedido;
 
         }
 

@@ -1,0 +1,30 @@
+@model List<Produto>
+
+  <div>
+    <a asp-action="create" class="float-right btn btn-danger">Adicionar Produto</a>
+  </div>    
+  <br/>
+  <table class="table" style="margin-top: 20px;">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Descrição</th>
+        <th>Valor</th>
+        <th>Imagem</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach(var produto in Model){
+      <tr class="text-danger">
+        <td>@produto.Nome</td>
+        <td>@produto.Descricao</td>
+        <td>@produto.Valor</td>
+        <td><img src="/imagens/@produto.NomeImagem" style="width: 30px;"></td>
+      </tr>
+    }
+    </tbody>
+  </table>
+
+        <a asp-action="AdicionarCarrinho" asp-route-id="1">Visualizar Pedido</a> 
+        <a asp-action="AdicionarCarrinho" asp-route-id="2">Visualizar Pedido</a> 

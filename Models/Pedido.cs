@@ -9,7 +9,7 @@ namespace DeliveryApp.Models
         public int Id { get; set; }
 
         public int Status_Pedido { get; set; }
-        public float Valor_Frete { get; set; }
+        public Double Valor_Frete { get; set; }
         public float Valor_Troco { get; set; }
         public int Tipo_Pagamento { get; set; }
 
