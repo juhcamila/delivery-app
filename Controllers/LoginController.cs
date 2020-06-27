@@ -111,7 +111,7 @@ namespace DeliveryApp.Controllers
         {
             await HttpContext.SignOutAsync();
             HttpContext.Session.Clear();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
     }
 }
