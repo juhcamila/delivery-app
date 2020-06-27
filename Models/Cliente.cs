@@ -17,16 +17,16 @@ namespace DeliveryApp.Models
 
         [Required(ErrorMessage="Campo Obrigatório.")]
         public string Celular {get; set;}
+        public int EnderecoId { get; set; }     
 
-        public int Id_Endereco { get; set; }       
-
-      //  public int id_usuario { get; set;}
-      //    public virtual Usuario Usuario { get; set; }
-       public virtual Endereco Endereco { get; set; }
-
-       /* public Cliente (){
+        public virtual Endereco Endereco { get; set; }
+        public int UsuarioId { get; set;}
+        public virtual Usuario Usuario { get; set; }
+       
+        public Cliente (){
             Usuario = new Usuario();
             Endereco = new Endereco();
-        }*/
+
+        }
     }
 }

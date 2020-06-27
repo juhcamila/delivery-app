@@ -37,7 +37,7 @@ namespace DeliveryApp.Data
         }
 
         public Usuario Create(Usuario usuario){
-            string sql = "INSERT INTO Usuario (email, senha, tipo) values (@email, @senha, 1)";
+            string sql = "INSERT INTO Usuario (email, senha, tipo) values (@email, @senha, @tipo)";
             
             SqlCommand cmd  = new SqlCommand(sql, connection);
 
@@ -63,12 +63,13 @@ namespace DeliveryApp.Data
         }
 
         public Boolean Logar(Usuario usuario) {
-            string sql = "SELECT * FROM Usuario WHERE email = @email and senha = @senha";
+            string sql = "SELECT * FROM Usuario WHERE email = @email and senha = @senha and tipo = @tipo";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
             cmd.Parameters.AddWithValue("@email", usuario.Email);
             cmd.Parameters.AddWithValue("@senha", usuario.Senha);
+            cmd.Parameters.AddWithValue("@tipo", usuario.Tipo);
 
             SqlDataReader reader = cmd.ExecuteReader();
 

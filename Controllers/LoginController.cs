@@ -13,6 +13,17 @@ namespace DeliveryApp.Controllers
 {
     public class LoginController : Controller
     {
+
+        [HttpGet]
+        public IActionResult AuthCliente()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Empresa");
+            }
+             return View();
+        }
+
         [HttpGet]
         public IActionResult AuthEmpresa()
         {
@@ -30,7 +41,7 @@ namespace DeliveryApp.Controllers
            
             if (ModelState.IsValid)
             {
-                    
+                usuario.Tipo = 1;    
                 using(UsuarioData data = new UsuarioData())
                 {
                     bool result = data.Logar(usuario);
@@ -47,6 +58,31 @@ namespace DeliveryApp.Controllers
             }}
 
             return View(usuario);
+        }
+
+         [HttpPost]
+        public IActionResult AuthCliente(Usuario usuario)
+        {
+           
+            if (ModelState.IsValid)
+            {
+                usuario.Tipo = 2;        
+                using(UsuarioData data = new UsuarioData())
+                {
+                    bool result = data.Logar(usuario);
+                
+                    if (result)
+                    {
+                        Login(usuario);
+                        return RedirectToAction("Index", "Empresa");
+                    }
+                    else
+                    {
+                        ViewBag.Erro = "Usuário e / ou senha incorretos!";
+                    }
+            }}
+
+            return View();
         }
 
         private async void Login(Usuario usuario)

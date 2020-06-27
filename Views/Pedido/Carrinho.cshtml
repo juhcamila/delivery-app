@@ -1,7 +1,13 @@
 @model List<Produto>
 
+@{
+    Layout = "_Layout";
+}
+
 
   <h2 class="text-danger">Carrinho</h2>
+  
+  <a href="/pedido/create/@Model.LastOrDefault().EmpresaId" class="btn btn-danger">Finalizar Pedido</a>
   <table class="table" style="margin-top: 20px;">
     <thead>
       <tr>

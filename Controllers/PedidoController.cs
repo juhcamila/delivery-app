@@ -46,37 +46,34 @@ namespace DeliveryApp.Controllers
                 return View(data.Read(Convert.ToInt32(id)));
         }
 
-
-        [HttpGet]
-        public IActionResult Create()
+         // atributo // annotations
+        public IActionResult Create(int id) 
         {
-            return View(new Pedido());
-        }
-
-        [HttpPost] // atributo // annotations
-        public IActionResult Create(Pedido model) 
-        {
-
-            if (!ModelState.IsValid)
-                return View(model);
-
-            Pedido pedido = null;   
-            Endereco endereco = null;
+Console.WriteLine(id);
+            DateTime thisDay = DateTime.Today;
+            Pedido pedido = new Pedido();   
             Produto produto = null;
+            Cliente cliente = null;
+            
 
-            using(EnderecoData data = new EnderecoData())
-                endereco = data.Create(model.Endereco);    
+            using(ClienteData data = new ClienteData())
+                cliente = data.GetCliente(User.Identity.Name);
+                Console.WriteLine(cliente.Id);
 
-            model.Id_Endereco = endereco.Id;
-            model.Valor_Frete = 6.99;
+            pedido.Id_Endereco = cliente.EnderecoId;
+            pedido.Valor_Frete = 6.99;
+            pedido.Id_Cliente = cliente.Id;
+            pedido.Tipo_Pagamento = 1;
+            pedido.Data_Pedido = thisDay;
+            pedido.Id_Empresa = id;
             using (PedidoData data = new PedidoData())
-                pedido = data.Create(model);
+                pedido = data.Create(pedido);
 
             IEnumerable<string> sessions = HttpContext.Session.Keys;
             foreach(string item in sessions){
-                int id = Convert.ToInt32(HttpContext.Session.GetInt32(item));
+                int Id_Produto = Convert.ToInt32(HttpContext.Session.GetInt32(item));
                 using(ProdutoData data = new ProdutoData())
-                    produto = data.Read(id);
+                    produto = data.Read(Id_Produto);
                 ItensComprados itens = new ItensComprados();
                  itens.Quantidade = 1;
                  itens.Valor = produto.Valor;
@@ -85,8 +82,9 @@ namespace DeliveryApp.Controllers
                 using(ItensCompradosData data = new ItensCompradosData())
                     data.Create(itens);
             }    
-
-            return RedirectToAction("Index");
+            
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index","Empresa");
         }
 
         public IActionResult Delete(int id)

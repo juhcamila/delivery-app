@@ -9,6 +9,8 @@ namespace DeliveryApp.Controllers
     public class ClienteController : Controller
     {
 
+          
+    
         [HttpGet]
         public IActionResult Read(Cliente cliente)
         {
@@ -25,17 +27,15 @@ namespace DeliveryApp.Controllers
         [HttpPost] // atributo // annotations
         public IActionResult Create(Cliente model) // Model Binding (MVC - HTML, API - JSON)
         {
-            // VALIDAÇÃO
-           // Usuario usuario = null;
-           //Endereco endereco = null;
+            
+           Usuario usuario = null;
+           Endereco endereco = null;
 
             if (!ModelState.IsValid)
                 return View(model);
 
-            using (ClienteData data = new ClienteData())
-                data.Create(model);
-
-            /*using(UsuarioData data = new UsuarioData())
+            model.Usuario.Tipo = 2;
+            using(UsuarioData data = new UsuarioData())
             usuario = data.Create(model.Usuario);
 
             using(EnderecoData data = new EnderecoData())
@@ -44,9 +44,10 @@ namespace DeliveryApp.Controllers
             model.Usuario.Id = usuario.Id;
             model.Endereco.Id = endereco.Id;
 
-*/            
+            using (ClienteData data = new ClienteData())
+                data.Create(model);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index","Empresa");
         }
 
         public IActionResult Delete(int id)
@@ -61,16 +62,14 @@ namespace DeliveryApp.Controllers
         [HttpGet]
         public IActionResult Update()  
         {
-            int id = 5;
-            Console.WriteLine(id);
             using (ClienteData data = new ClienteData())
-                return View(data.Read(id));
+                return View();
         }
 
         [HttpPost]
         public IActionResult Update(int id, Cliente model)
         {
-            model.Id = 5;
+            
             if (!ModelState.IsValid)
                 return View(model);
 

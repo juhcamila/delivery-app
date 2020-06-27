@@ -36,15 +36,16 @@ namespace DeliveryApp.Data
         {
             Console.WriteLine(cliente.Nome);
 
-            string sql = "Insert Into Cliente(nome,cpf,celular) values (@nome,@cpf,@celular)";
+            string sql = "Insert Into Cliente(nome,cpf,celular,id_usuario,id_endereco) values (@nome,@cpf,@celular,@usuario_id,@endereco_id)";
 
             SqlCommand cmd = new SqlCommand(sql, connection);
 
             cmd.Parameters.AddWithValue("@nome", cliente.Nome);
             cmd.Parameters.AddWithValue("@cpf", cliente.Cpf);
             cmd.Parameters.AddWithValue("@celular", cliente.Celular);
+            cmd.Parameters.AddWithValue("@usuario_id", cliente.Usuario.Id);
+            cmd.Parameters.AddWithValue("@endereco_id", cliente.Endereco.Id);
             
-
             cmd.ExecuteNonQuery();
         }
 
@@ -58,6 +59,27 @@ namespace DeliveryApp.Data
             cmd.ExecuteNonQuery();
         }
 
+          public Cliente GetCliente(string email)
+        {
+            string sql = "SELECT * FROM Cliente INNER JOIN Usuario ON Usuario.email = @email and Usuario.id = Cliente.id_usuario";
+        
+            Cliente cliente = null;
+
+            SqlCommand cmd = new SqlCommand(sql, connection);
+
+            cmd.Parameters.AddWithValue("@email", email);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            if(reader.Read())
+            {
+                cliente = new Cliente();
+                cliente.Id = (int)reader["Id"];
+                cliente.EnderecoId = (int)reader["id_endereco"];
+            }
+
+            return cliente;
+        }
         public void Update(Cliente cliente)
         {
             string sql = "Update Cliente Set Nome = @nome, Cpf = @Cpf, Celular = @Celular Where Id = @id";

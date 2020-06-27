@@ -47,10 +47,12 @@
      <div class="form-group">
       <label class="control-label col-sm-2" for="cidade">Cidade:</label>
             <div class="col-sm-10">
-                <input type="cidade" class="form-control" id="cidade" placeholder="Cidade" name="complemento" asp-for="Cidade">
+                <input type="cidade" class="form-control" id="cidade" placeholder="Cidade" name="cidade" asp-for="Cidade">
                 <span asp-validation-for="Cidade"></span>
             </div>
     </div>
+
+    <input type="hidden" asp-for="Id" value="@Model.Id"> 
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         <button class="btn btn-danger">Salvar</button>

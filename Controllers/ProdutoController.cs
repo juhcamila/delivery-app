@@ -24,6 +24,7 @@ namespace DeliveryApp.Controllers
           return RedirectToAction("Carrinho", "Pedido");
         }
 
+                
         public IActionResult RemoverCarrinho(int id)
         {
           HttpContext.Session.Remove("produto" + id);
@@ -41,6 +42,13 @@ namespace DeliveryApp.Controllers
 
             using(ProdutoData data = new ProdutoData())
                 return View(data.Read(empresa));
+        }
+      
+       public IActionResult ShowProduto(int id)
+        {
+           
+            using(ProdutoData data = new ProdutoData())
+                return View(data.ReadCliente(id));
         }
 
         [HttpGet]

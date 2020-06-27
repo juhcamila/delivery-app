@@ -81,14 +81,12 @@ namespace DeliveryApp.Data
         public Pedido Create(Pedido pedido)
         {
 
-            string sql = "INSERT INTO Pedido VALUES (@id, @tipo_Pagamento, @data_Pedido, @valor_Frete, @status_Pedido, @id_empresa, @id_cliente, @id_endereco)";
+            string sql = "INSERT INTO Pedido (tipo_Pagamento, data_Pedido, valor_Frete, status_Pedido, id_empresa, id_cliente, id_endereco) VALUES ( @tipo_Pagamento, @data_Pedido, @valor_Frete, 0, @id_empresa, @id_cliente, @id_endereco)";
             
             SqlCommand cmd = new SqlCommand(sql, connection);
 
-            cmd.Parameters.AddWithValue("@id", pedido.Id);
             cmd.Parameters.AddWithValue("@data_Pedido", pedido.Data_Pedido);
-            cmd.Parameters.AddWithValue("@valor_Frete", 10);
-            cmd.Parameters.AddWithValue("@status_Pedido", pedido.Valor_Total);
+            cmd.Parameters.AddWithValue("@valor_Frete", pedido.Valor_Frete);
             cmd.Parameters.AddWithValue("@tipo_Pagamento", pedido.Tipo_Pagamento);
             cmd.Parameters.AddWithValue("@id_empresa", pedido.Id_Empresa);
             cmd.Parameters.AddWithValue("@id_cliente", pedido.Id_Cliente);

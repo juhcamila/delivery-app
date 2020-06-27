@@ -1,61 +1,112 @@
 @model Cliente
 @{
-    Layout = "_Layout";
+    Layout = "_LayoutIndex";
 }
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <script>
-      $(document).ready(function(){
-        $("#myBtn").click(function(){
-      $('.toast').toast('show');
-    });
-});
-</script>
-     <!--div class="toast">
-    <div class="toast-header">
-      
-    </div>
-    <div class="toast-body">
-      Cadastrado com sucesso!
-    </div>
-  </div-->
+
 <div class="container">
-     <div class="col-sm-10">
-      <h5 class="text-danger">Perfil</h5>
-    </div>
+  <div class="col-sm-10">
+    <h5 class="text-danger">Perfil</h5>
+  </div>
     
   <form action="/cliente/create" method="POST">
-   <div class="form-group">
+    <div class="form-group">
       <label class="control-label col-sm-2" for="nome">Nome:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="nome" placeholder="Informe seu nome" name="Nome" asp-for="Nome">
-                <span asp-validation-for="Nome"></span>
-            </div>
-    </div>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="nome" placeholder="Informe seu nome"  asp-for="Nome">
+            <span asp-validation-for="Nome"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="cpf">Cpf:</label>
+          <div class="col-sm-10">
+           <input type="text" class="form-control cpf" id="cpf" placeholder="Informe seu cpf"  asp-for="Cpf">
+            <span asp-validation-for="Cpf"></span>
+         </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="celular">Celular:</label>
+          <div class="col-sm-10">
+            <input type="text" class="form-control phone_with_ddd" id="celular" placeholder="Informe seu celular" asp-for="Celular">
+            <span asp-validation-for="Celular"></span>
+          </div>
+      </div>
+  
+      <div class="col-sm-10">
+        <h5 class="text-danger">Endereço</h5>   
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="cep">Cep:</label>
+          <div class="col-sm-10">
+            <input type="cep" class="form-control cep" id="cep" placeholder="Cep"  asp-for="Endereco.Cep">
+            <span asp-validation-for="Endereco.Cep"></span>
+          </div>
+      </div>
 
     <div class="form-group">
-      <label class="control-label col-sm-2" for="cpf">Cpf:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="cpf" placeholder="Informe seu cpf" name="Cpf" asp-for="Cpf">
-                <span asp-validation-for="Cpf"></span>
-            </div>
-    </div>
+       <label class="control-label col-sm-2" for="bairro">Bairro:</label>
+        <div class="col-sm-10">
+         <input type="bairro" class="form-control" id="bairro" placeholder="Informe seu bairro"  asp-for="Endereco.Bairro">
+          <span asp-validation-for="Endereco.Bairro"></span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="rua">Rua:</label>
+          <div class="col-sm-10">
+           <input type="rua" class="form-control" id="rua" placeholder="Informe sua rua"  asp-for="Endereco.Rua">
+            <span asp-validation-for="Endereco.Rua"></span>
+         </div>
+      </div>   
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="numero">Número:</label>
+          <div class="col-sm-10">
+            <input type="numero" class="form-control" id="numero" placeholder="Informe seu número"  asp-for="Endereco.Numero">
+              <span asp-validation-for="Endereco.Numero"></span>
+          </div>
+      </div>   
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="complemento">Complemento:</label>
+         <div class="col-sm-10">
+           <input type="complemento" class="form-control" id="complemento" placeholder="Complemento"  asp-for="Endereco.Complemento">
+             <span asp-validation-for="Endereco.Complemento"></span>
+          </div>
+      </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="cidade">Cidade:</label>
+          <div class="col-sm-10">
+            <input type="cidade" class="form-control" id="Cidade" placeholder="Cidade"  asp-for="Endereco.Cidade">
+              <span asp-validation-for="Endereco.Cidade"></span>
+          </div>
+      </div>
+   
+        <div class="col-sm-10">
+          <h5 class="text-danger">Usuário</h5>
+        </div>
+        
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="email">E-mail:</label>
+          <div class="col-sm-10">
+            <input type="email" class="form-control"  placeholder="E-mail"  asp-for="Usuario.Email">
+            <span asp-validation-for="Usuario.Email"></span>
+          </div>
+      </div>
 
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="celular">Celular:</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="celular" placeholder="Informe seu celular" name="Celular" asp-for="Celular">
-                <span asp-validation-for="Celular"></span>
-            </div>
-    </div>
-    <div class="form-group">        
-      <div class="col-sm-offset-2 col-sm-10">
-        <button class="btn btn-danger" >Salvar</button>
-        <a href="/" class="btn btn-default">Voltar</a>
-    </div>
-    </div>
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="senha">Senha:</label>
+          <div class="col-sm-10">          
+            <input type="password" class="form-control" placeholder="Senha"  asp-for="Usuario.Senha">
+            <span asp-validation-for="Usuario.Senha"></span>
+          </div>
+      </div>
+
+      <div class="form-group">        
+        <div class="col-sm-offset-2 col-sm-10">
+          <button class="btn btn-danger" >Salvar</button>
+          <a href="/" class="btn btn-default">Voltar</a>
+        </div>
+      </div>
   </form>
 </div>
 

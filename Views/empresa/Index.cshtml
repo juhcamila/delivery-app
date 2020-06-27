@@ -1,0 +1,24 @@
+@model List<Empresa> 
+
+@{
+    Layout = "_Layout";
+}
+
+  @* <span>@Model.Count</span> *@
+
+   <h2 class="text-danger">Empresas</h2>
+<br>
+  <div class="row">
+  @foreach(var emp in Model){
+  <div class="card col-sm-4" style="width: 30rem; margin: 5px;">
+    <div class="card-body text-center">
+      
+      <h5 class="card-title text-danger">Nome: @emp.Nome</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Cnpj: @emp.Cnpj</h6>
+      <h6 class="card-subtitle mb-2 text-muted">Telefone: @emp.Telefone</h6>
+
+        <a href="/produto/showproduto/@emp.Id" >Ver Produtos</a> 
+    </div>
+  </div>
+   }
+   </div>

@@ -19,22 +19,16 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li>
-                             <form class="form-inline ">
-                                <i class="fas fa-search" aria-hidden="true"></i><input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Busque por item ou loja" aria-label="Search">
-                                
-                            </form>
+                            <a class="nav-link text-dark"  asp-area="" asp-controller="Empresa" asp-action="Index">Pesquisar Empresas</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark"  asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                             <a class="nav-link text-dark" asp-controller="Endereco" asp-action="create"  style="color: red">Endereço</a>   
+                             <a class="nav-link text-dark" asp-controller="Endereco" asp-action="update"  style="color: red">Endereço</a>   
                         </li>
                         <li class="nav-item">
-                             <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="create"  style="color: red">Perfil</a>   
-                        </li>
-                        <li class="nav-item">
-                             <a class="nav-link text-dark"  asp-area="" asp-controller="Pedido" asp-action="create"  style="color: red">Pedido</a>   
+                             <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="update"  style="color: red">Perfil</a>   
                         </li>
                         <li class="nav-item">
                              <a href="~/login/logout" class="nav-link text-dark" >Realizar o logout</a>   

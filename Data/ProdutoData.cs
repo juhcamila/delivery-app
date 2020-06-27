@@ -35,6 +35,41 @@ namespace DeliveryApp.Data
 
             return lista;
         }
+
+         public List<Produto> ReadCliente(int id){
+            string sql = "SELECT * FROM Produto inner join Empresa  on Empresa.id = produto.id_empresa WHERE Produto.id_empresa = @id";
+
+            List<Produto> lista = new List<Produto>();
+
+            SqlCommand cmd = new SqlCommand(sql, connection);
+
+            cmd.Parameters.AddWithValue("@id", id);
+
+            SqlDataReader reader = cmd.ExecuteReader();
+        
+
+            while(reader.Read())
+            {
+                Produto produto = new Produto();
+                produto.Id = reader.GetInt32(0);
+                produto.Nome = reader.GetString(1);
+                produto.Descricao = reader.GetString(2);
+                produto.Valor = reader.GetDouble(3);
+                produto.Empresa = new Empresa();
+                produto.Empresa.Nome = reader.GetString(6);
+                produto.NomeImagem = reader.GetString(5);
+                produto.EmpresaId = id;
+        
+
+                lista.Add(produto);
+            }
+
+            return lista;
+        }
+
+
+
+
         public Produto Read(int id){
             string sql = "SELECT * FROM Produto WHERE Id = @id";
 

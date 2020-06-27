@@ -21,15 +21,12 @@ namespace DeliveryApp.Data
             while(reader.Read())
             {
                 Empresa empresa = new Empresa();
-                empresa.Id = reader.GetInt32(0);
-                empresa.Nome = reader.GetString(1);
+                empresa.Id = reader.GetInt32(3);
+                empresa.Nome = reader.GetString(0);
+                empresa.Cnpj = reader.GetString(1);
                 empresa.Telefone = reader.GetString(2);
-                empresa.Endereco.Bairro = reader.GetString(3);
-                empresa.Endereco.Rua = reader.GetString(4);
-                empresa.Endereco.Cidade = reader.GetString(5);
-                empresa.Endereco.Cep = reader.GetString(6);
-            
-
+                
+              
                 lista.Add(empresa);
             }
 

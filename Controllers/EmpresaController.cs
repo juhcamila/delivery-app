@@ -9,10 +9,12 @@ namespace DeliveryApp.Controllers
     public class EmpresaController : Controller
     {
         // [HttpGet]
+    
+        [HttpGet]
         [Authorize]
-        public IActionResult Index(Empresa empresa)
-        {
-            using (EmpresaData data = new EmpresaData())
+        public IActionResult Index()
+        {      
+            using(EmpresaData data = new EmpresaData())
                 return View(data.Read());
         }
 
@@ -25,16 +27,14 @@ namespace DeliveryApp.Controllers
         [HttpPost] 
         public IActionResult Create(Empresa model)
         {
-            //if (model.Endereco.Numero <= 100){
-            //    ModelState.AddModelError("Endereco.Numero", "Tem que ser maior que 100, sua anta");
-           //     return View(model);
-          //  }
+
            Usuario usuario = null;
            Endereco endereco = null;
 
             if(!ModelState.IsValid)
                 return View(model);
-
+                
+            model.Usuario.Tipo = 1;
             using(UsuarioData data = new UsuarioData())
                  usuario = data.Create(model.Usuario);
 

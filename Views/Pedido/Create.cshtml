@@ -12,50 +12,12 @@
       <h5 class="text-danger">Pedido</h5>
     </div>
   <form action="/pedido/create" method="POST">
- 
-  
-     <div class="form-group">
-      <label class="control-label col-sm-2" for="nome">Nome Cliente:</label>
-            <div class="col-sm-10">
-              <font size=2>@Model.Id_Cliente</font>
-            </div>
-    </div>   
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="nome">Nome Empresa:</label>
-            <div class="col-sm-10">
-               <font size=2>Burguer King</font>
-            </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="nome">Nome Produto:</label>
-            <div class="col-sm-10">
-               <font size=2>Duplo Whopper</font>
-            </div>
-    </div>  
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="nome">Valor Produto:</label>
-            <div class="col-sm-10">
-               <font size=2>R$ 15,00</font>
-            </div>
-    </div> 
-     <div class="form-group">
-      <label class="control-label col-sm-2" for="nome">Endereço:</label>
-            <div class="col-sm-10">
-              <a href="/endereco/create">Rua Venicio Cordeiro,320 - Residencial Anna Angélica</a>
-            </div>
-    </div>
-    
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="nome">Data Pedido:</label>
-            <div class="col-sm-10">
-               <font size=2>20/06/2020</font>
-            </div>
-    </div>
-      
+         
+
      <div class="form-group">
       <label class="control-label col-sm-2" for="nome">Valor Troco:</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="valor_+" placeholder="Informe sua nota para troco" name="Valor_Troco" asp-for="Valor_Troco">
+                <input type="text" class="form-control" id="Valor_Troco" placeholder="Informe sua nota para troco" name="Valor_Troco" asp-for="Valor_Troco">
                 <span asp-validation-for="Valor_Troco"></span>
             </div>
     </div>
@@ -69,14 +31,7 @@
           </div>
    
     </div>
-      
-   <div class="form-group">
-      <label class="control-label col-sm-2" for="nome">Valor Total:</label>
-            <div class="col-sm-10">
-               <font size=2>R$ 29,00</font> 
-            </div>
-    </div>
-    
+       
     <div class="form-group">        
       <div class="col-sm-offset-2 col-sm-10">
         <button class="btn btn-danger">Salvar</button>
