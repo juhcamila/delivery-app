@@ -103,7 +103,6 @@ C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razo
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Update.cshtml.g.cs
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Create.cshtml.g.cs
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Cliente\Update.cshtml.g.cs
-C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Endereco\Create.cshtml.g.cs
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Endereco\Update.cshtml.g.cs
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Create.cshtml.g.cs
 C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\Delete.cshtml.g.cs
@@ -132,3 +131,7 @@ C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razo
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\ShowCliente.cshtml.g.cs
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\Produto\ShowProduto.cshtml.g.cs
 C:\Users\COBMAX\Desktop\facul\trabalho\delivery-app\obj\Debug\netcoreapp3.1\Razor\Views\empresa\Index.cshtml.g.cs
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Empresa\Index.cshtml.g.cs
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Login\AuthCliente.cshtml.g.cs
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Pedido\ShowCliente.cshtml.g.cs
+C:\Users\jucie\OneDrive\Documentos\pos\C#\deliveryApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\ShowProduto.cshtml.g.cs
