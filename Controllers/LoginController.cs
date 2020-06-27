@@ -42,11 +42,11 @@ namespace DeliveryApp.Controllers
                     }
                     else
                     {
-                        ViewBag.Erro = "Usuário e / ou senha incorretos!";
+                        ModelState.AddModelError("Email", "E-mail ou senha incorreto!");
                     }
             }}
 
-            return View();
+            return View(usuario);
         }
 
         private async void Login(Usuario usuario)
