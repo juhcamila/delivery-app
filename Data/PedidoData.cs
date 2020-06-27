@@ -35,7 +35,6 @@ namespace DeliveryApp.Data
                 pedido.Endereco.Cidade = reader.GetString(12);
                 pedido.Endereco.Numero = reader.GetInt32(13);
                 //pedido.Tipo_Pagamento = reader.GetInt32(7);
-                pedido.Valor_Troco = reader.GetInt32(2);
                 pedido.Status_Pedido = reader.GetInt32(6);
 
                 using(ItensCompradosData data = new ItensCompradosData())

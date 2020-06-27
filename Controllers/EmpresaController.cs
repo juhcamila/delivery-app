@@ -47,8 +47,8 @@ namespace DeliveryApp.Controllers
             using(EmpresaData data = new EmpresaData())
                 data.Create(model);
 
-            return RedirectToAction("IndexEmpresa", "Pedido");
-        }
+           return RedirectToAction("IndexEmpresa", "Pedido");     
+       }
 
         
         [HttpGet]

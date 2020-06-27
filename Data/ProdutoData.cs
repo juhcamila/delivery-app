@@ -27,7 +27,7 @@ namespace DeliveryApp.Data
                 produto.Nome = reader.GetString(1);
                 produto.Descricao = reader.GetString(2);
                 produto.Valor = reader.GetDouble(3);
-                produto.NomeImagem = reader.GetString(5);
+                produto.NomeImagem = reader.GetString(4);
             
 
                 lista.Add(produto);
